@@ -544,8 +544,8 @@ Top 5 eigenvalues :
     def save(self,outname):									#ASGHAR
 	io.saveh(outname,components=self.components_)						#ASGHAR
 	io.saveh(outname,covariance=self.covariance_)						#ASGHAR
-	io.saveh(outname,time_covariance=self.offset_correlation_)						#ASGHAR
-	io.saveh(outname,lag_time=np.array([self.lag_time]))						#ASGHAR
+	io.saveh(outname,time_covariance=self.offset_correlation_)				#ASGHAR
+	io.saveh(outname,lag_time=np.array([self.lag_time]))					#ASGHAR
 	io.saveh(outname,vals=self.eigenvalues_)						#ASGHAR
 	io.saveh(outname,vecs=self.eigenvectors_)						#ASGHAR
 
