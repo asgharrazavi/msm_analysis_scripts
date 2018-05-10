@@ -11,8 +11,8 @@ def train():
     	d = np.zeros((len(ref1),n_parms))
     	print "working on:", i
     	for p in range(len(parms)):
-		data = io.loadh('%s/traj%d_cc.h5' %(traj_path,i), name=parms[p])
-	        d[:,p] = data
+	    data = io.loadh('%s/traj%d_cc.h5' %(traj_path,i), name=parms[p])
+	    d[:,p] = data
     	dataset.append(d)
     return dataset
 
