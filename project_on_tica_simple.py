@@ -27,29 +27,33 @@ def project():
     return dataset
 
 
+def plot_tica_lands(dataset,figname):
+    ev0, ev1, ev2 = [], [], []
+    for i in range(len(dataset)):
+        ev0.extend(dataset[i][:,0]); ev1.extend(dataset[i][:,1]); ev2.extend(dataset[i][:,2])
+    ev0, ev1, ev2 = np.array(ev0), np.array(ev1), np.array(ev2)
+    io.saveh('ev0.h5',ev0)
+    io.saveh('ev1.h5',ev1)
+    io.saveh('ev2.h5',ev2)
+    print "ev0.shape, ev1.shape, ev2.shape:", ev0.shape, ev1.shape, ev2.shape
+    x1,x2,y1,y2,z1,z2 = np.min(ev0), np.max(ev0), np.min(ev1), np.max(ev1), np.min(ev2), np.max(ev2)
+    plt.figure(figsize=(6,15))
+    plt.subplot(311)
+    plt.hist2d(ev0,ev1,bins=350,norm=LogNorm())plt.xlim([x1,x2]);plt.ylim([y1,y2])
+    plt.subplot(312)
+    plt.hist2d(ev0,ev2,bins=350,norm=LogNorm())plt.xlim([x1,x2]);plt.ylim([z1,z2])
+    plt.subplot(313)
+    plt.hist2d(ev1,ev2,bins=350,norm=LogNorm())plt.xlim([y1,y2]);plt.ylim([z1,z2])
+    plt.savefig(figname)
+
+
 parms_file = "params.txt"
 traj_path = "../trajs/"
+tica_figname = 'tica_l16ns_lands.png'
 
 parms = np.loadtxt('%s' %parms_file,dtype=str)
 tica = io.loadh('tica_l16ns.h5')
 
 proj_data = project()
-
-ev0, ev1, ev2 = [], [], []
-for i in range(50):
-    ev0.extend(proj_data[i][:,0]); ev1.extend(proj_data[i][:,1]); ev2.extend(t6[i][:,2])
-ev0, ev1, ev2 = np.array(ev0), np.array(ev1), np.array(ev2)
-io.saveh('ev0.h5',ev0)
-io.saveh('ev1.h5',ev1)
-io.saveh('ev2.h5',ev2)
-print ev0.shape, ev1.shape, ev2.shape
-x1,x2,y1,y2,z1,z2 = -5,2,-4,5,-4,3
-plt.figure(figsize=(6,15))
-plt.subplot(311)
-plt.hist2d(ev0,ev1,bins=350,norm=LogNorm())#;plt.xlim([x1,x2]);plt.ylim([y1,y2])
-plt.subplot(312)
-plt.hist2d(ev0,ev2,bins=350,norm=LogNorm())#;plt.xlim([x1,x2]);plt.ylim([z1,z2])
-plt.subplot(313)
-plt.hist2d(ev1,ev2,bins=350,norm=LogNorm())#;plt.xlim([y1,y2]);plt.ylim([z1,z2])
-plt.savefig('lands_tica.png')
+plot_tica_lands(dataset,tica_figname)
 
