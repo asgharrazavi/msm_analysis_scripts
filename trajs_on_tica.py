@@ -26,6 +26,7 @@ for i in tqdm(['A','B','C']):
     plt.xticks([])   
     plt.yticks([])   
     ii += 1
+
 plt.savefig('trajs_on_tica.png')
 plt.show()
 
