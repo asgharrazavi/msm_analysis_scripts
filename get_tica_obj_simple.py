@@ -3,7 +3,6 @@ import mdtraj.io as io
 import msmbuilder.decomposition.tica as ti
 import numpy as np
 
-
 def train():
     dataset = []
     for i in range(50):
