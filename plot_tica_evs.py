@@ -30,9 +30,8 @@ plt.xlabel('tICA Parameters')
 plt.xlim([-0.5,len(parms)+1])
 plt.xticks(range(len(parms)),parms,rotation='vertical',fontsize=12)
 plt.savefig('evs.png',dpi=100)
-#plt.show()
 
-# plot eigenvalues 
+# plot eigenvalues as well 
 plt.figure(figsize=(10,10))
 plt.plot(ti['vals'],'o-')
 plt.savefig('vals.png')
