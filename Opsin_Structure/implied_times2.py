@@ -21,7 +21,6 @@ def implied_times():
  	i_times[i] = msm.eigenvalues_[1:]
  	print i, msm.eigenvalues_
 
-#implied_times()
 
 def plot(data,title,outname):
     plt.figure()
@@ -34,6 +33,8 @@ def plot(data,title,outname):
     plt.ylabel('Implied times ',fontsize=22)
     plt.savefig(outname)
     plt.close()
+
+#implied_times()
 
 msm_timescales_d = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='transpose',ergodic_cutoff=0),verbose=1)
 plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_times_t_erg_off3.png')
