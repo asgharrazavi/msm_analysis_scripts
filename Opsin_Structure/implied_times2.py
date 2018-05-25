@@ -38,10 +38,9 @@ def plot(data,title,outname):
 msm_timescales_d = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='transpose',ergodic_cutoff=0),verbose=1)
 plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_times_t_erg_off3.png')
 
-#msm_timescales_d_mle = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='mle',ergodic_cutoff=1),verbose=1)
 msm_timescales_d_mle = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True),verbose=1)
 plot(msm_timescales_d_mle,'Discrete-time MSM Relaxation Timescales MLE','imp_times_mle.png')
-quit()
+
 msm_timescales_c = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1, msm=ContinuousTimeMSM(verbose=True),verbose=1)
 plot(msm_timescales_c,'Continuous-time MSM Relaxation Timescales MLE','imp_times_c.png')
 
