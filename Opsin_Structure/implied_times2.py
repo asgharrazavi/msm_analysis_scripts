@@ -19,8 +19,7 @@ def implied_times():
 	msm = MarkovStateModel(lag_time=lag_times[i], n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
         msm.fit(sequences)
  	i_times[i] = msm.eigenvalues_[1:]
- 	print "lag time, msm eigenvalues:", i, msm.eigenvalues_
-
+ 	print "lag time, msm eigenvalues:", lag_times[i], msm.eigenvalues_
 
 def plot(data,title,outname):
     plt.figure()
@@ -37,7 +36,7 @@ def plot(data,title,outname):
 implied_times()
 
 msm_timescales_d = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='transpose',ergodic_cutoff=0),verbose=1)
-plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_times_t_erg_off3.png')
+plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_times_t_erg_off.png')
 
 msm_timescales_d_mle = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True),verbose=1)
 plot(msm_timescales_d_mle,'Discrete-time MSM Relaxation Timescales MLE','imp_times_mle.png')
