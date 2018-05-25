@@ -10,7 +10,7 @@ for i in range(64):
     sequences.append(np.loadtxt('assigns_%d.txt' %i,dtype=int))
 
 print len(sequences)
-lag_times = [50,100,150,200,300,500,1000,2000]#,3000,4000,5000]
+lag_times = [50,100,150,200,300,500,1000,2000]
 n_timescales = 7
 
 def implied_times():
@@ -22,8 +22,6 @@ def implied_times():
  	print i, msm.eigenvalues_
 
 #implied_times()
-#quit()
-
 
 def plot(data,title,outname):
     plt.figure()
