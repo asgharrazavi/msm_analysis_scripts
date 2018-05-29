@@ -15,16 +15,18 @@ for i in range(64):
 msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
 
-try :
-    ev0 = io.loadh('../tica_files/ev0.h5')['arr_0']
-    ev1 = io.loadh('../tica_files/ev1.h5')['arr_0']
-except:
-    ev0, ev1 = [], []
-    for i in range(64):
-        a = io.loadh('on_tica_l16ns_%d.h5' %i)['arr_0'] 
-        print a.shape
-        ev0.extend(a[:,0])
-        ev1.extend(a[:,1])
+def get_ev0_ev1():
+    try :
+        ev0 = io.loadh('../tica_files/ev0.h5')['arr_0']
+        ev1 = io.loadh('../tica_files/ev1.h5')['arr_0']
+    except:
+        ev0, ev1 = [], []
+        for i in range(64):
+            a = io.loadh('on_tica_l16ns_%d.h5' %i)['arr_0'] 
+            print i, "projected data.shape:", a.shape
+            ev0.extend(a[:,0])
+            ev1.extend(a[:,1])
+    return ev0, ev1
 
 gens = np.loadtxt('../assigns/gens.txt')
 
