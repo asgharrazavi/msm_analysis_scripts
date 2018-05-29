@@ -35,7 +35,6 @@ def save():
 
 def plot_evs():
     fig = plt.figure(figsize=(10,10),facecolor='w')
-#    gs = gridspec.GridSpec(2,5)
     gs = gridspec.GridSpec(1,1)
     gs.update(left=0.1, right=0.95, bottom=0.05, top=0.95, wspace=0.0, hspace=0.05)
     for i in range(1,2):
@@ -56,21 +55,16 @@ def plot_evs():
         ms2 = [int(ii) for ii in abs(msm.left_eigenvectors_[:,i][ind2]/float(np.sum(abs(msm.left_eigenvectors_[:,i]))))*5000]
 	ax.scatter(gens[:,0][ind1],gens[:,1][ind1],s=ms1,c='r')
 	ax.scatter(gens[:,0][ind2],gens[:,1][ind2],s=ms2,c='b')
-#	ax.plot(gens[:,0][sort1[0:10]],gens[:,1][sort1[0:10]],'ro',markersize=10)
-#	ax.plot(gens[:,0][sort1[-10:]],gens[:,1][sort1[-10:]],'bo',markersize=10)
-#  	ax.xticks(fontsize=18)
-#  	ax.yticks(fontsize=18)
-#	plt.ylim([-0.05,0.05])
         fig.add_subplot(ax)
     plt.savefig('msm_relaxation_times3.pdf')
-#    plt.show()
 
+gens = np.loadtxt('../assigns/gens.txt')
 assigns = []
 for i in range(64):
     assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
 msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
-gens = np.loadtxt('../assigns/gens.txt')
+
 
 save()
 plot_evs()
