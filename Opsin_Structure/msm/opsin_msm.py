@@ -22,14 +22,6 @@ def get_ev0_ev1():
             ev1.extend(a[:,1])
     return ev0, ev1
 
-assigns = []
-for i in range(64):
-    assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
-msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
-msm.fit(assigns)
-
-gens = np.loadtxt('../assigns/gens.txt')
-
 def save():
     np.savetxt('msm_eigenvalues.dat',msm.eigenvalues_)
     np.savetxt('msm_left_eigenvectors.dat',msm.left_eigenvectors_)
@@ -72,6 +64,13 @@ def plot_evs():
         fig.add_subplot(ax)
     plt.savefig('msm_relaxation_times3.pdf')
 #    plt.show()
+
+assigns = []
+for i in range(64):
+    assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
+msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
+msm.fit(assigns)
+gens = np.loadtxt('../assigns/gens.txt')
 
 save()
 plot_evs()
