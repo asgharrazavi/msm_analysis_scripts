@@ -11,7 +11,7 @@ rcParams.update({'font.size': 16})
 
 assigns = []
 for i in range(64):
-    assigns.append(np.loadtxt('assigns_%d.txt' %i ,dtype=int))
+    assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
 msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
 
