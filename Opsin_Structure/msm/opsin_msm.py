@@ -9,12 +9,6 @@ rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 16})
 
-assigns = []
-for i in range(64):
-    assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
-msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
-msm.fit(assigns)
-
 def get_ev0_ev1():
     try :
         ev0 = io.loadh('../tica_files/ev0.h5')['arr_0']
@@ -27,6 +21,12 @@ def get_ev0_ev1():
             ev0.extend(a[:,0])
             ev1.extend(a[:,1])
     return ev0, ev1
+
+assigns = []
+for i in range(64):
+    assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
+msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
+msm.fit(assigns)
 
 gens = np.loadtxt('../assigns/gens.txt')
 
