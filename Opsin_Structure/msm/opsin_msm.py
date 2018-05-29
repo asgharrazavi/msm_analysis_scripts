@@ -16,8 +16,8 @@ msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose
 msm.fit(assigns)
 
 try :
-    ev0 = io.loadh('../ev0.h5')['arr_0']
-    ev1 = io.loadh('../ev1.h5')['arr_0']
+    ev0 = io.loadh('../tica_files/ev0.h5')['arr_0']
+    ev1 = io.loadh('../tica_files/ev1.h5')['arr_0']
 except:
     ev0, ev1 = [], []
     for i in range(64):
@@ -26,7 +26,7 @@ except:
         ev0.extend(a[:,0])
         ev1.extend(a[:,1])
 
-gens = np.loadtxt('gens.txt')
+gens = np.loadtxt('../assigns/gens.txt')
 
 def save():
     np.savetxt('msm_eigenvalues.dat',msm.eigenvalues_)
