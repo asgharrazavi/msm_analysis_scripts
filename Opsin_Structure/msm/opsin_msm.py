@@ -34,17 +34,18 @@ def save():
     np.savetxt('msm_cmat.dat',msm.countsmat_)
 
 def plot_evs():
+    gens = np.loadtxt('../assigns/gens.txt')
     fig = plt.figure(figsize=(10,10),facecolor='w')
     gs = gridspec.GridSpec(1,1)
     gs.update(left=0.1, right=0.95, bottom=0.05, top=0.95, wspace=0.0, hspace=0.05)
     for i in range(1,2):
         inner_grid = gridspec.GridSpecFromSubplotSpec(2, 1, subplot_spec=gs[i-1], wspace=0.0, hspace=0.0, width_ratios=[100,1,1], height_ratios=[1,1])
         ax = plt.Subplot(fig, inner_grid[0])
-        www = ax.plot(msm.left_eigenvectors_[:,i],'.-',linewidth=2)#;ax.set_title('MSM eigenvector %d' %i,fontsize=16)
+        www = ax.plot(msm.left_eigenvectors_[:,i],'.-',linewidth=2)
 	if i != 0:
 	    plt.text(30,0.03,'%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3),\
                     color='k',fontsize=20,bbox=dict(facecolor='w', edgecolor='k',boxstyle='round'), horizontalalignment='center')
-	    print i, '%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3)
+	    print i, "msm timescale:", '%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3)
         ind1 = (msm.left_eigenvectors_[:,i] < 0)
         ind2 = (msm.left_eigenvectors_[:,i] > 0)
         sort1 = np.argsort(msm.left_eigenvectors_[:,i])
@@ -58,13 +59,11 @@ def plot_evs():
         fig.add_subplot(ax)
     plt.savefig('msm_relaxation_times3.pdf')
 
-gens = np.loadtxt('../assigns/gens.txt')
 assigns = []
 for i in range(64):
     assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
 msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
-
 
 save()
 plot_evs()
