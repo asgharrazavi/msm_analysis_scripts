@@ -5,7 +5,6 @@ import mdtraj.io as io
 
 cluster = KMeans(n_clusters=100,n_jobs=-1,verbose=0, max_iter=100, tol=0.0001,)
 
-
 dataset = []
 for i in range(4):
     a = io.loadh('../on_tica_l20_s1_%d.h5' %i)['arr_0']
@@ -30,7 +29,8 @@ for i in range(20):
 
 cluster.fit(dataset)
 lens = [len(i) for i in dataset]
-print np.array(cluster.labels_).shape
+print "number of frames for each trajectory:" , lens
 np.savetxt('gens.txt',np.array(cluster.cluster_centers_))
+
 for i in range(64):
     np.savetxt('assigns_%d.txt' %i,np.array(cluster.labels_[i]),fmt='%d')
