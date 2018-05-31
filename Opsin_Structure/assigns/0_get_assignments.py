@@ -3,6 +3,7 @@ import numpy as np
 from msmbuilder.cluster import KMeans, KCenters
 import mdtraj.io as io
 
+# 100 microstates
 cluster = KMeans(n_clusters=100,n_jobs=-1,verbose=0, max_iter=100, tol=0.0001,)
 
 dataset = []
