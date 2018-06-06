@@ -6,28 +6,26 @@ rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 20})
  
+# Load tICA object
 ti = io.loadh('tica_l20.h5')
-print ti.keys()
 
 vecs = ti['components']
-print vecs.shape
 cov = ti['covariance']
 
+# calculate total dynamics
 dott = np.dot(cov,vecs.T)
 trr = 0
 for i in range(dott.shape[0]):
     s = np.linalg.norm(dott[:,i])**2
     trr += s
-trr = float(trr)
 
 c3 = 0
 cont = []
 for i in range(dott.shape[0]):
     s = np.linalg.norm(dott[:,i])**2
-    c3 += s / trr
+    c3 += s / float(trr)
     cont.append(c3)
-    print i, c3
-quit()
+
 plt.plot(cont,'o-',lw=2)
 plt.xlim([-1,22])
 plt.ylim([0,1])
