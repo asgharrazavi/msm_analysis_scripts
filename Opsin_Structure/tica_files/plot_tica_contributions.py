@@ -6,7 +6,7 @@ rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 20})
  
-# Load tICA object
+# load tICA object
 ti = io.loadh('tica_l20.h5')
 
 vecs = ti['components']
@@ -27,8 +27,9 @@ for i in range(dott.shape[0]):
     c3 += s / float(trr)
     cont.append(c3)
 
+# plot accumulated tICA eigenvector contributions
 plt.plot(cont,'o-',lw=2)
-plt.xlim([-1,22])
+plt.xlim([-1,22])	# zooming only on the first 22 tICs
 plt.ylim([0,1])
 plt.grid(True,lw=1)
 plt.xlabel('tICA eigenvector')
