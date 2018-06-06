@@ -4,4 +4,4 @@
 `protein.pdb` contains only the protein (Opsin) structure.
 Only the protein structures are shown in the `stage2_xtcs` and `stage4_xtcs` simulation trajectories due to large file sizes.
 Frames are saved every *400* ps. 
-The **stage1** and **stage2** simulations are not here because of large file sizes as well. These simulations are archived and are available upon request.
+The **stage1** and **stage2** simulations are not here because of large file sizes. All simulations are archived and are available upon request.
