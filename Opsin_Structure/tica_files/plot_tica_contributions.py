@@ -19,6 +19,7 @@ for i in range(dott.shape[0]):
     s = np.linalg.norm(dott[:,i])**2
     trr += s
 
+# calculate each eigenvector's contribution
 c3 = 0
 cont = []
 for i in range(dott.shape[0]):
