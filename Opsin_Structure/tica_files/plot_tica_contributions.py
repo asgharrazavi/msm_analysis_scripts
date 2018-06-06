@@ -35,5 +35,4 @@ plt.grid(True,lw=1)
 plt.xlabel('tICA eigenvector')
 plt.ylabel('Contribution')
 plt.savefig('tic_cont_zoom.png',dpi=100,transparet=True)
-plt.show()
 
