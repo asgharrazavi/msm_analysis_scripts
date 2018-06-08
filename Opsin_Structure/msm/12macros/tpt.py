@@ -16,14 +16,11 @@ def do_tpt(ev_id):
     plt.figure(figsize=(15,10))
     sources = [7]
     sinks = [10]
-#    sources = np.where(msm.left_eigenvectors_[:,ev_id] < -0.05)
-#    sinks = np.where(msm.left_eigenvectors_[:,ev_id] > 0.05)
     net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
     np.savetxt('net_flux.txt',net_flux)
     pfold = tpt.committors(sources, sinks, msm)
     np.savetxt('pfold.txt',pfold)
     paths = tpt.paths(sources, sinks, net_flux, remove_path='subtract', flux_cutoff=0.9999999999)
-#    mfpts = tpt.mfpts(msm, sinks, lag_time=20.0)
     mfpts = tpt.mfpts(msm, sinks=None, lag_time=1.0)    #     Default is (1) which is in units of the lag time of the MSM.
     print "mfpts:", mfpts
     np.savetxt('mfpts_from_i_to_j.txt',np.array(mfpts))
