@@ -1,4 +1,3 @@
-import os,sys
 import numpy as np
 from msmbuilder.cluster import KMeans, KCenters
 import mdtraj.io as io
