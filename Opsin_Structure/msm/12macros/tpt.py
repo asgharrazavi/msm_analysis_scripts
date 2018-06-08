@@ -5,12 +5,14 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 rcParams.update({'figure.autolayout': True})
 
-assigns = []
-for i in range(64):
-    assigns.append(np.loadtxt('macro12_assigns_%d.txt' %i ,dtype=int))
-# 40 ns
-msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
-msm.fit(assigns)
+def build_msm():
+    assigns = []
+    for i in range(64):
+        assigns.append(np.loadtxt('macro12_assigns_%d.txt' %i ,dtype=int))
+    # 40 ns
+    msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
+    msm.fit(assigns)
+    return msm
 
 def do_tpt(ev_id):
     plt.figure(figsize=(15,10))
@@ -44,7 +46,7 @@ def do_tpt(ev_id):
        	plt.text(i,pfold[sort[i]],sort[i])
     plt.savefig('pfold_ev%d_0.01.png' %ev_id)
 
-
+msm = build_msm()
 for i in [1]:
     print "working on eigenvector:", i
     do_tpt(i)
