@@ -14,7 +14,9 @@ msm.fit(assigns)
 
 def do_tpt(ev_id):
     plt.figure(figsize=(15,10))
+    # TPT "FROM":
     sources = [7]
+    # TPT "To":
     sinks = [10]
     net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
     np.savetxt('net_flux.txt',net_flux)
