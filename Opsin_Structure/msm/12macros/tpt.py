@@ -8,6 +8,7 @@ rcParams.update({'figure.autolayout': True})
 assigns = []
 for i in range(64):
     assigns.append(np.loadtxt('macro12_assigns_%d.txt' %i ,dtype=int))
+# 40 ns
 msm = MarkovStateModel(lag_time=500, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
 
