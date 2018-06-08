@@ -30,6 +30,7 @@ def do_tpt(ev_id):
     print "total_flux:", total_flux
     sort = np.argsort(pfold)
     total_line_width = np.sum(paths[1][0:5])
+    # top 5 paths, to get all paths set this number higher
     for j in range(5):
 	print "path:", paths[0][j]
 	print "flux:", paths[1][j] , paths[1][j] / float(np.sum(paths[1]))
