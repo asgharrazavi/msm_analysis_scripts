@@ -7,7 +7,7 @@ mpl.rcParams['axes.linewidth'] = 1 #set the value globally
 
 sequences = []
 for i in range(64):
-    sequences.append(np.loadtxt('assigns_%d.txt' %i,dtype=int))
+    sequences.append(np.loadtxt('../assigns/assigns_%d.txt' %i,dtype=int))
 
 print len(sequences)
 lag_times = [50,100,150,200,300,500,1000,2000]
