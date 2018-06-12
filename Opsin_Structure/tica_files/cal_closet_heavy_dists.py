@@ -15,10 +15,9 @@ print "len(pairs):",len(pairs)
 
 for i in range(4):
     print i
-    traj = md.load('../protein_%d.xtc' %i,top=ref)
+    traj = md.load('../md_files/stage1_xtc/protein_%d.xtc' %i,top=ref)
     print traj.xyz.shape
     d = md.compute_contacts(traj,contacts=pairs,scheme='closest-heavy', ignore_nonprotein=True)
     io.saveh('t%d.h5' %i, distances=d[0])
     io.saveh('t%d.h5' %i, residue_pairs=d[1])
 
-print d
