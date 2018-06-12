@@ -21,3 +21,27 @@ for i in range(4):
     io.saveh('s1_%d.h5' %i, distances=d[0])
     io.saveh('s1_%d.h5' %i, residue_pairs=d[1])
 
+# stage 2
+for i in range(20):
+    traj = md.load('../md_files/stage2_xtc/protein_%d.xtc' %i,top=ref)
+    print "stage2: traj, xyz.shape:", i, traj.xyz.shape
+    d = md.compute_contacts(traj,contacts=pairs,scheme='closest-heavy', ignore_nonprotein=True)
+    io.saveh('s1_%d.h5' %i, distances=d[0])
+    io.saveh('s1_%d.h5' %i, residue_pairs=d[1])
+
+# stage 3
+for i in range(20):
+    traj = md.load('../md_files/stage3_xtc/protein_%d.xtc' %i,top=ref)
+    print "stage3: traj, xyz.shape:", i, traj.xyz.shape
+    d = md.compute_contacts(traj,contacts=pairs,scheme='closest-heavy', ignore_nonprotein=True)
+    io.saveh('s1_%d.h5' %i, distances=d[0])
+    io.saveh('s1_%d.h5' %i, residue_pairs=d[1])
+
+# stage 4
+for i in range(20):
+    traj = md.load('../md_files/stage4_xtc/protein_%d.xtc' %i,top=ref)
+    print "stage4: traj, xyz.shape:", i, traj.xyz.shape
+    d = md.compute_contacts(traj,contacts=pairs,scheme='closest-heavy', ignore_nonprotein=True)
+    io.saveh('s1_%d.h5' %i, distances=d[0])
+    io.saveh('s1_%d.h5' %i, residue_pairs=d[1])
+
