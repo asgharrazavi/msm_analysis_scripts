@@ -2,7 +2,7 @@ import mdtraj as md
 import numpy as np
 import mdtraj.io as io
 
-ref = md.load('../../protein.pdb')
+ref = md.load('../md_files/protein.pdb')
 print "number of residues:", ref.n_residues
 
 listt = np.concatenate((range(34,60,3),range(72,99,3),range(109,137,3),range(152,172,3),range(202,233,3),range(244,274,3),range(287,310,3)))
