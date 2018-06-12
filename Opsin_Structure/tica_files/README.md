@@ -1,4 +1,4 @@
-# Comments
+# Workflow
 step1: use `cal_closet_heavy_dists.py` to calculate tICA parameters.
 <br />  
 step2: use `get_tica_obj_simple.py` to get tICA object.
@@ -6,6 +6,7 @@ step2: use `get_tica_obj_simple.py` to get tICA object.
 step3: use `project_on_tica_simple.py` to projevt tICA parameters on tICA eigenvectors.
 <br />  
 
+# Comments
 Some of the `on_tica_l20_??.h5` files are not here because of large sizes. 
 <br />  
 These files are generated using the `../project_on_tica_simple.py`
