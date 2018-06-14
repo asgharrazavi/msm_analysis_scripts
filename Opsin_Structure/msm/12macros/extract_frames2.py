@@ -6,19 +6,19 @@ import multiprocessing
 ref = md.load('../../md_files/ionized.pdb')
 
 def save_xtc(macro_id,idd):
-    if macro_id in [1,2,4,6,7] : stage = 1 ; start = 0 ; end = 4
-    if macro_id in [0,3,9] :     stage = 2 ; start = 4 ; end = 24
-    if macro_id in [5,8,11] : stage = 3 ; start = 24; end = 44
-    if macro_id in [10] : stage = 4 ; start = 44; end = 64
+#    if macro_id in [1,2,4,6,7] : stage = 1 ; start = 0 ; end = 4
+#    if macro_id in [0,3,9] :     stage = 2 ; start = 4 ; end = 24
+#    if macro_id in [5,8,11] : stage = 3 ; start = 24; end = 44
+#    if macro_id in [10] : stage = 4 ; start = 44; end = 64
     xyz, lens = [], 0
     for j in range(start,end):
 	assigns = np.loadtxt('macro12_assigns_%d.txt' %j,dtype=int)[::5]		#skip5
     	ss = np.where(assigns == macro_id)[0]
     	if len(ss) == 0:
 	    continue
-    	t = md.load('/Users/asr2031/Desktop/transfer/opsin/stage%d/ensemble_%d_skip5.xtc' %(stage,j-start),top=ref)
+    	t = md.load('../../md_files/stage%d/ensemble_%d_skip5.xtc' %(stage,j-start),top=ref)
   	print "number of frames belonging to macrostate %d:" %macro_id, len(ss) 
-#    	xyz.append(t.xyz[ss,:,:])
+	# trying not to save every single frame
         if len(ss) > 1000: t.xyz = t.xyz[ss[0:-1:30],:,:]
         elif len(ss) > 100: t.xyz = t.xyz[ss[0:-1:10],:,:]
         else: t.xyz = t.xyz[ss[0:-1:2],:,:]
