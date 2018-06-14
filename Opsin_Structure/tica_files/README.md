@@ -10,7 +10,7 @@ step3: use `project_on_tica_simple.py` to project tICA parameters on tICA eigenv
 Some of the `on_tica_l20_??.h5` files are not here because of large sizes. 
 `on_tica_l20_50.h5 to on_tica_l20_63.h5` are projection of **stage 4** of the simulations on tICA reaction coordinates.
 <br />  
-The files: `ev0.h5`  and  `ev1.h5`  are projection of all of the MD simulation data on tICA *1st* and *2nd* eigenvectors.
+The files: `ev0.h5`  and  `ev1.h5`  are projection of all of the MD simulation data on tICA **1st** and **2nd** eigenvectors.
 These files can be used to plot MD projections on tICA 1st and 2nd eigenvectors (i.e. reaction coordinates).
 The `land_tica_stages.pdf` shown projection of each statge of simulations on these two reaction coordinates.
 <br />  
