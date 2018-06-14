@@ -16,4 +16,5 @@ The `land_tica_stages.pdf` shows projection of each statge of simulations on the
 <br />  
 `tic_cont_zoom.png` and `tic_cont_all.png` show contribution of each tICA eigenvector to total dynamics captured by tICA. 
 These contributions are normalized and accumulated and calculated using the `plot_tica_contributions.py` script.
+These contributions are calculated based on the reference below:
 
