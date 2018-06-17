@@ -6,6 +6,6 @@ step2: choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalue
 
 # Comments
 MSM could be build on a _macrostate_ level for better visualization of 
-metastable states and transitions among them. See `12macros` for this.
+metastable states and transitions among them. See `12macros` folder for this.
 
 
