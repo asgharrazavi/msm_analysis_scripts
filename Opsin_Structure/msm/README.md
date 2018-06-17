@@ -7,6 +7,6 @@ step2: choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalue
 # Comments
 MSM could be build on a _macrostate_ level for better visualization of 
 metastable states and transitions among them and obtaining flux values that capture conformational
-transitions. See `12macros` folder for this.
+transitions in a dynamics system. See `12macros` folder for macro-level MSM for the Opsin.
 
 
