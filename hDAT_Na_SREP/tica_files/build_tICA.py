@@ -13,16 +13,13 @@ def train(start,stop,stride):
     for i in range(50):
     	ref = np.loadtxt('%s/na2_na1_%d.txt' %(path,i))[start:stop:stride]
     	d = np.zeros((len(ref)-1,n_parms))
-#    	print "working on:", i
+    	print "working on:", i
     	for p in range(n_parms):
 	    data = np.loadtxt('%s/%s_%d.txt' %(path,parms[p],i))
-#	    data[data > 40 ] = np.random.choice(np.linspace(40,45,1000),len(data[data>40]))
-	    data[data > 40 ] = np.random.choice(np.linspace(0,1,1000),len(data[data>40]))
 	    try:
 	        d[:,p][0:d.shape[0]] = data[:,1][start:start+d.shape[0]]
 	    except:
 	        d[:,p][0:d.shape[0]] = data[start:start+d.shape[0]]
-#	print "\t\t", d.shape
     	dataset.append(d)
     return dataset
 
