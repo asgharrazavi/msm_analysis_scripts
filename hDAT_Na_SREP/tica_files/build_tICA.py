@@ -18,7 +18,7 @@ def train(start,stop,stride):
     	dataset.append(d)
     return dataset
 
-tica = ti.tICA(n_components=None, lag_time=10)
+tica = ti.tICA(n_components=None, lag_time=10, gamma=0.05, weighted_transform=False)
 
 parms = ['r60_y335','r60_e446','r60_e428','na2_water_coord',  'na2_e428',  'na2_d421',  'na2_d79',  'e428_r445',  \
 'y335_e428',  'd436_r445',  'r60_d436',  'na2_na1']
