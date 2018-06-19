@@ -3,10 +3,6 @@ import mdtraj.io as io
 import msmbuilder.decomposition.tica as ti
 import numpy as np
 
-tica = ti.tICA(n_components=None, lag_time=10)
-
-parms = ['r60_y335','r60_e446','r60_e428','na2_water_coord',  'na2_e428',  'na2_d421',  'na2_d79',  'e428_r445',  \
-'y335_e428',  'd436_r445',  'r60_d436',  'na2_na1']
 
 def train(start,stop,stride):
     dataset = []
@@ -23,7 +19,11 @@ def train(start,stop,stride):
     	dataset.append(d)
     return dataset
 
-n_parms = len(parms) - 5
+tica = ti.tICA(n_components=None, lag_time=10)
+
+parms = ['r60_y335','r60_e446','r60_e428','na2_water_coord',  'na2_e428',  'na2_d421',  'na2_d79',  'e428_r445',  \
+'y335_e428',  'd436_r445',  'r60_d436',  'na2_na1']
+n_parms = len(parms)
 
 path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_carver/000_all_skip20/analysis/'
 dataset1 = train(0,-1,1)
