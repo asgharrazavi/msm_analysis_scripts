@@ -1,5 +1,3 @@
-import os,sys
-import mdtraj.io as io
 import msmbuilder.decomposition.tica as ti
 import numpy as np
 
@@ -25,9 +23,9 @@ parms = ['r60_y335','r60_e446','r60_e428','na2_water_coord',  'na2_e428',  'na2_
 
 n_parms = len(parms)
 
-path = '../analysis/'
-dataset1 = train(0,-1,1)
-tica.fit(dataset1)
+dataset = train()
+tica.fit(dataset)
+
 print "tica eigenvalues:", tica.eigenvalues_
 tica.save('tica_l16ns.h5')
 
