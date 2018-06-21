@@ -10,11 +10,11 @@ def train():
     	d = np.zeros((len(ref)-1,n_parms))
     	print "working on:", i
     	for p in range(n_parms):
-	    data = np.loadtxt('%s/%s_%d.txt' %(path,parms[p],i))
+	    data = np.loadtxt('%s_%d.txt' %(parms[p],i))
 	    try:
-	        d[:,p][0:d.shape[0]] = data[:,1][start:start+d.shape[0]]
+	        d[:,p] = data[:,1]	# some input files may have two columns, we always need the data (2nd column) not time (1st column)
 	    except:
-	        d[:,p][0:d.shape[0]] = data[start:start+d.shape[0]]
+	        d[:,p] = data
     	dataset.append(d)
     return dataset
 
