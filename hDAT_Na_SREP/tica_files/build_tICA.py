@@ -3,10 +3,10 @@ import mdtraj.io as io
 import msmbuilder.decomposition.tica as ti
 import numpy as np
 
-def train(start,stop,stride):
+def train():
     dataset = []
     for i in range(50):
-    	ref = np.loadtxt('%s/na2_na1_%d.txt' %(path,i))[start:stop:stride]
+    	ref = np.loadtxt('na2_na1_%d.txt' %(i))
     	d = np.zeros((len(ref)-1,n_parms))
     	print "working on:", i
     	for p in range(n_parms):
