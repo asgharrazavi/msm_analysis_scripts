@@ -4,13 +4,12 @@
 ##### tICA lagtime: 16 ns
 </br >
 
-``tic_cont_zoom.png`` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
-</br >
 
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
 
 </br >
 
+``tic_cont_zoom.png`` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
 
 <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.72.3634">Separation of a Mixture of Independent Signals Using Time Delayed Correlations</a>
 , L. Molgedey and H. G. Schuster, Phys. Rev. Lett. 72, 3634, (1994) 
