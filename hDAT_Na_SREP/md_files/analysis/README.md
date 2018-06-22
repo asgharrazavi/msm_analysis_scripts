@@ -7,5 +7,5 @@ These parameters are used for building tICA.
 These files are generated using the `tcl` scripts on my `NAMD-VMD-Tcl` GitHub repository. 
 </br >
 
-`img_dataset.png` shows distrubution of each parameter over eintire ensemble of MD simulations.
+`img_dataset.png` shows distrubution of each parameter over the entire ensemble of MD simulations.
 
