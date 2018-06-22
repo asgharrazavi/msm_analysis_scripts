@@ -22,6 +22,7 @@ Step 3. Use `plot_tica_contributions.py` to estimate how much each tICA eigenvec
 `parameter_contribution_for_tica_eigenvectors.png` shows that 1st tICA reaction coordinates captures Na+/Na2 movement, whereas, the 2nd tICA coordinate captures intracellular gate dynamics.
 
 </br >
+
 `tic_cont_zoom.png` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
 
 <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.72.3634">Separation of a Mixture of Independent Signals Using Time Delayed Correlations</a>
