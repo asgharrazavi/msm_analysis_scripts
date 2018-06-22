@@ -1,3 +1,13 @@
+## Workflow
+
+Step 1. Use `build_tICA.py` to build tICA object.
+</br >
+Step 2. Use `project_on_tica.py` to project MD simulations data on tICA eigenvectors.
+</br >
+Step 3. Use
+
+
+
 ## Comments
 
 
