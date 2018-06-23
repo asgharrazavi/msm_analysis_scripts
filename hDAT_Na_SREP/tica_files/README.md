@@ -18,7 +18,7 @@ Step 3. Use `plot_tica_contributions.py` to estimate how much each tICA eigenvec
 
 </br >
 
-`parameter_contribution_for_tica_eigenvectors.png` shows that 1st tICA reaction coordinates captures Na+/Na2 movement, whereas, the 2nd tICA coordinate captures intracellular gate dynamics. 
+`parameter_contribution_for_tica_eigenvectors.png` shows that _1st_ tICA reaction coordinates captures Na+/Na2 movement, whereas, the _2nd_ tICA coordinate captures intracellular gate dynamics. 
 This plot is generated using the `plot_parameter_contribution_for_tica_eigenvectors.py` script.
 
 </br >
