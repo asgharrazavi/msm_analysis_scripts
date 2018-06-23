@@ -15,6 +15,7 @@ Step 3. Use `plot_tica_contributions.py` to estimate how much each tICA eigenvec
 </br >
 
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
+The `tica_landscapes_eigenvalues.png` shows a projection.
 
 </br >
 
