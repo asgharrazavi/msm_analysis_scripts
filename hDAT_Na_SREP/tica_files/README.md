@@ -24,7 +24,7 @@ This plot is generated using the `plot_parameter_contribution_for_tica_eigenvect
 
 </br >
 
-`img_trajs_on_tica.pdf` shows how simulation is evolving during simulation time for several trajectories in which Na+/Na2 eventually is released to the intracellular environment.
+`img_trajs_on_tica.pdf` shows how tICA landscape is explored during simulation time for several trajectories in which Na+/Na2 eventually is released to the intracellular environment.
 
 </br >
 
