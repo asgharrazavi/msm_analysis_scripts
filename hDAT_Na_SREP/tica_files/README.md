@@ -24,6 +24,10 @@ This plot is generated using the `plot_parameter_contribution_for_tica_eigenvect
 
 </br >
 
+`img_trajs_on_tica.pdf` shows how simulation is evolving during simulation time for several trajectories in which Na+/Na2 eventually is released to the intracellular environment.
+
+</br >
+
 `tic_cont_zoom.png` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
 
    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.72.3634">Separation of a Mixture of Independent Signals Using Time Delayed Correlations</a>
