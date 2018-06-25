@@ -8,4 +8,6 @@ These files are generated using the `tcl` scripts on my `NAMD-VMD-Tcl` GitHub re
 </br >
 
 `img_dataset.png` shows distrubution of each parameter over the entire ensemble of MD simulations.
+</br >
 
+`img_pot_prob.png` shows probability of finding a potassium ion within certain distance from Na2 site.
