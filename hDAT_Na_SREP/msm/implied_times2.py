@@ -5,21 +5,11 @@ from msmbuilder.msm import implied_timescales
 import matplotlib as mpl
 mpl.rcParams['axes.linewidth'] = 1 #set the value globally
 
-sequences = []
-for i in range(64):
-    sequences.append(np.loadtxt('../assigns/assigns_%d.txt' %i,dtype=int))
+sequences = np.loadtxt('assigns_all_skip20.txt',dtype=int)
 
-print len(sequences)
-lag_times = [50,100,150,200,300,500,1000,2000]
-n_timescales = 7
-
-def implied_times():
-    i_times = np.zeros((len(lag_times),20))
-    for i in range(len(lag_times)):
-	msm = MarkovStateModel(lag_time=lag_times[i], n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
-        msm.fit(sequences)
- 	i_times[i] = msm.eigenvalues_[1:]
- 	print "lag time, msm eigenvalues:", lag_times[i], msm.eigenvalues_
+lag_times = [5,10,15,20,30,50,100]
+lag_times = [5,10,15,20,30,50,100,200,300]
+n_timescales = 10
 
 def plot(data,title,outname):
     plt.figure()
@@ -27,17 +17,18 @@ def plot(data,title,outname):
    	plt.plot(lag_times, data[:, i], 'o-')
     plt.title(title)
     plt.semilogy()
+    plt.xticks([5,15,30,50,100],np.array([5,15,30,50,100])*20*80/1000,fontsize=18)
     plt.yticks(fontsize=18)
-    plt.xlabel('Lag times ',fontsize=22)
-    plt.ylabel('Implied times ',fontsize=22)
+    plt.xlabel('Lag times (ns)',fontsize=22)
+    plt.ylabel('Implied times (ns)',fontsize=22)
     plt.savefig(outname)
     plt.close()
 
-implied_times()
-
 msm_timescales_d = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='transpose',ergodic_cutoff=0),verbose=1)
-plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_times_t_erg_off.png')
+plot(msm_timescales_d,'Discrete-time MSM Relaxation Timescales','imp_test.png')
+quit()
 
+#msm_timescales_d_mle = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True,  reversible_type='mle',ergodic_cutoff=1),verbose=1)
 msm_timescales_d_mle = implied_timescales(sequences, lag_times, n_timescales=n_timescales, n_jobs=1,msm=MarkovStateModel(verbose=True),verbose=1)
 plot(msm_timescales_d_mle,'Discrete-time MSM Relaxation Timescales MLE','imp_times_mle.png')
 
