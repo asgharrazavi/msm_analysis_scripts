@@ -15,11 +15,11 @@ Step 3. Use `plot_tica_contributions.py` to estimate how much each tICA eigenvec
 </br >
 
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
-The file `tica_landscapes_eigenvalues.png` shows a projection of all of the 50 MD trajectories on tICA eigenvectors.
+The file `img_tica_landscapes_eigenvalues.png` shows a projection of all of the 50 MD trajectories on tICA eigenvectors.
 
 </br >
 
-`parameter_contribution_for_tica_eigenvectors.png` shows that _1st_ tICA reaction coordinates captures Na+/Na2 movement, whereas, the _2nd_ tICA coordinate captures intracellular gate dynamics. 
+`img_parameter_contribution_for_tica_eigenvectors.png` shows that _1st_ tICA reaction coordinates captures Na+/Na2 movement, whereas, the _2nd_ tICA coordinate captures intracellular gate dynamics. 
 This plot is generated using the `plot_parameter_contribution_for_tica_eigenvectors.py` script.
 
 </br >
@@ -28,7 +28,7 @@ This plot is generated using the `plot_parameter_contribution_for_tica_eigenvect
 
 </br >
 
-`tic_cont_zoom.png` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
+`img_tic_cont_zoom.png` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
 
    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.72.3634">Separation of a Mixture of Independent Signals Using Time Delayed Correlations</a>
 , L. Molgedey and H. G. Schuster, Phys. Rev. Lett. 72, 3634, (1994) 
