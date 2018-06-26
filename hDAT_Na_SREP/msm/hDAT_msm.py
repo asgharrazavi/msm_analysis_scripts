@@ -22,24 +22,16 @@ def save():
 
 
 def plot_evs():
-#    fig = plt.figure(figsize=(20,10))
     plt.figure(figsize=(20,10))
     for i in range(1,10):
-#        ax = fig.add_subplot(5,2,i+1);plt.plot(msm.left_eigenvectors_[:,i],'-.',linewidth=2);ax.set_title('MSM eigenvector %d' %i,fontsize=16)
         plt.subplot(3,3,i);plt.plot(msm.left_eigenvectors_[:,i],'.-',linewidth=2);plt.title('MSM eigenvector %d' %i,fontsize=16)
 	if i != 0:
-#	    ax.text(0.5,0.9,'%3.2f +- %2.2f (ns)' %(msm.timescales_[i-1]*80*20./1E3,msm.uncertainty_timescales()[i-1]*80*20./1E3),\
-#                    color='k',fontsize=16,bbox=dict(facecolor='w', edgecolor='k'), horizontalalignment='center', transform=ax.transAxes)
 	    plt.text(30,0.03,'%3.2f (ns)' %(msm.timescales_[i-1]*80*20./1E3),\
                     color='k',fontsize=20,bbox=dict(facecolor='w', edgecolor='k',boxstyle='round'), horizontalalignment='center')
-#	inds = np.where(abs(msm.left_eigenvectors_[:,i]) > 0.008)[0]
-#	for j in inds:
-#	    plt.text(j,msm.left_eigenvectors_[:,i][j],j,fontsize=14)
   	plt.xticks(fontsize=18)
   	plt.yticks(fontsize=18)
 	plt.ylim([-0.05,0.05])
-    plt.savefig('msm_relaxation_times2.png')
-#    plt.show()
+    plt.savefig('img_msm_relaxation_times.png')
 
-#save()
+save()
 plot_evs()
