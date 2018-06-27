@@ -14,8 +14,13 @@ Step 3. Use `plot_tica_contributions.py` to estimate how much each tICA eigenvec
 ##### tICA lagtime: 16 ns
 </br >
 
+The numpy file `projected_on_tica_16ns_sep_skip20.npy` contains projection of MD simulation data on all tICA eigenvectors for all 50 MD simulations trajectories. Frames are saved every 1.6 ns.
+
+</br >
+
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
 The file `img_tica_landscapes_eigenvalues.png` shows a projection of all of the 50 MD trajectories on tICA eigenvectors.
+
 
 </br >
 
