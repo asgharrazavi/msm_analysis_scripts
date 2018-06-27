@@ -9,7 +9,6 @@ from matplotlib import rcParams
 rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 
-
 def project(name):
     dataset, ev0, ev1 = [], [], []
     for i in range(50):
