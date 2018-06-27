@@ -9,7 +9,7 @@ from matplotlib import rcParams
 rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 
-def project(name):
+def project():
     dataset, ev0, ev1 = [], [], []
     for i in range(50):
   	print i
@@ -40,3 +40,4 @@ n_parms = len(parms)
 
 tica = io.loadh('tica_l16ns.h5')
 
+project()
