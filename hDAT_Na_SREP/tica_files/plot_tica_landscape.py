@@ -23,7 +23,7 @@ for i in range(len(data1)):
 # plot tICA landscape
 plt.hist2d(ev0,ev1,bins=[200,400],norm=LogNorm())
 plt.grid(True,lw=1)
-plt.xlim([np.min(ev0)-0.1,np.max(ev0)+0.3])
+plt.xlim([np.min(ev0)-0.1,np.max(ev0)+0.5])
 plt.xlabel('tIC 1')
 plt.ylabel('tIC 2')
 plt.savefig('img_tica_landscape',dpi=100,transparet=True)
