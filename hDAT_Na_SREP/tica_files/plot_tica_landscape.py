@@ -5,39 +5,25 @@ from matplotlib import rcParams
 rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 20})
- 
+from matplotlib.colors import LogNorm 
+
 # load MD on tICA projected files
 data1 = np.load('projected_on_tica_16ns_sep.npy')
 data2 = np.load('projected_on_tica_16ns_sep_skip20.npy')
 
+# concatenate tIC 1 and tIC 2 data
+ev0 = []
+ev1 = []
+for i in range(len(data1)): 
+    ev0.extend(data1[i][:,0])
+    ev0.extend(data2[i][:,0])
+    ev1.extend(data1[i][:,1])
+    ev1.extend(data2[i][:,1])
 
-# load tICA object
-ti = io.loadh('tica_l16ns.h5')
-
-vecs = ti['components']
-cov = ti['covariance']
-
-# calculate total dynamics
-dott = np.dot(cov,vecs.T)
-trr = 0
-for i in range(dott.shape[0]):
-    s = np.linalg.norm(dott[:,i])**2
-    trr += s
-
-# calculate each eigenvector's contribution
-c3 = 0
-cont = []
-for i in range(dott.shape[0]):
-    s = np.linalg.norm(dott[:,i])**2
-    c3 += s / float(trr)
-    cont.append(c3)
-
-# plot accumulated tICA eigenvector contributions
-plt.plot(cont,'o-',lw=2)
-plt.xlim([-1,22])	# zooming only on the first 22 tICs
-plt.ylim([0,1])
+# plot tICA landscape
+plt.hist2d(ev0,ev1,bins=[200,400],norm=LogNorm())
 plt.grid(True,lw=1)
-plt.xlabel('tICA eigenvector')
-plt.ylabel('Contribution')
-plt.savefig('tic_cont_zoom.png',dpi=100,transparet=True)
+plt.xlabel('tIC 1')
+plt.ylabel('tIC 2')
+plt.savefig('img_tica_landscape',dpi=100,transparet=True)
 
