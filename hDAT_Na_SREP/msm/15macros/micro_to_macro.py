@@ -1,4 +1,3 @@
-import os,sys
 import mdtraj.io as io
 import numpy as np
 
@@ -16,7 +15,7 @@ def mapp(micro_assigns,macro_map):
 	print "not all micro assignments are converted"
     return macro_assigns 
 
-micro_assigns = np.loadtxt('assigns_all_skip20.txt',dtype=int)
+micro_assigns = np.loadtxt('../assigns_all_skip20.txt',dtype=int)
 macro_assigns = mapp(micro_assigns,map15)
-print "i, micro_assigns.shape:", i, micro_assigns.shape
+print "micro_assigns.shape:", micro_assigns.shape
 np.savetxt('macro15_assigns.txt', macro_assigns, fmt='%d')
