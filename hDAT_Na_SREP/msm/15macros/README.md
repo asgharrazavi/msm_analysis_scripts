@@ -1,7 +1,8 @@
 ## Workflow
 
 Step 1. Use `pccaplus.py` script to kinetically lump microstates into macrostate.
-
+Step 2. Convert microstate assignments to macrostate assignments using `micro_to_macro.py`.
+Step 3. Build MSM and transition path theory (TPT) on macrostate level.
 
 ## Comments
 
