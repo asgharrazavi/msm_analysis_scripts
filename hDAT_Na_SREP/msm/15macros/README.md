@@ -1,9 +1,10 @@
 ## Comments
 
-**MSM lagtime : 48 ns**
+**macro MSM lagtime : 48 ns**
 </br >
 
-`assigns_all_skip20.txt` contains assignments for all of the 50 MD trajectories.
+`assigns_all_skip20.txt` contains **macrostate** assignments for all of the 50 MD trajectories. 
+The script `micro_to_macro.py` is used to generate these.
 </br>
 `gens_all_skip20.txt` shows the tIC 1 and tIC 2 values for each microstate on tICA landscape. These are the microstate centers.
 </br>
