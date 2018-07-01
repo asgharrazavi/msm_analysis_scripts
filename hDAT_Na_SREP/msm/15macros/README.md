@@ -14,3 +14,4 @@ Step 3. Build MSM and transition path theory (TPT) on macrostate level.
 `macro15_assigns.txt` contains **macrostate** assignments for all of the 50 MD simulation trajectories. 
 The script `micro_to_macro.py` is used to generate these.
 </br>
+</br>
