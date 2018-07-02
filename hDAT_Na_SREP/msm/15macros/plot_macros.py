@@ -29,7 +29,7 @@ for i in range(15):
     c = cm.Paired(i/15.,1)
     ev00, ev11 = [], []
     for j in range(50):
-	dd = projections[j]
+	dd = projections[j][0:len(assigns[j])]
     	ind = [assigns[j] == i]
 	if i in [0,1,2,3,4,5,7,8,12]:
 	    stride = 1
@@ -44,5 +44,5 @@ for i in range(15):
         plt.scatter(ev00,ev11,c=c,cmap='gist_ncar',alpha=0.8, linewidths=0.5)#colors[i])
 
 #plt.savefig('macros10_4.png',dpi=800)
-#plt.show()
+plt.show()
 
