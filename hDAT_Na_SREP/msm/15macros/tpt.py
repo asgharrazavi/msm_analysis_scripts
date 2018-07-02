@@ -19,13 +19,12 @@ def do_tpt():
     net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
     pfold = tpt.committors(sources, sinks, msm)
     paths = tpt.paths(sources, sinks, net_flux, remove_path='subtract', flux_cutoff=0.9999999999)
-    sort = np.argsort(pfold)
-    total_line_width = np.sum(paths[1][0:5])
+    total_flux = np.sum(paths[1])
     data = []
-    for j in range(10):
-	print "path:", paths[0][j]
-	print "flux:", paths[1][j]
-	data.append([paths[0][j],paths[1][j])
-    print tabulate(data,headers=('Path','Flux'))
+    acuu_f = 0
+    for j in range(len(paths[1])):
+	acuu_f += paths[1][j]/float(total_flux)
+	data.append([paths[0][j],paths[1][j],paths[1][j]/float(total_flux),acuu_f])
+    print tabulate(data,headers=('Path','Flux','Norm Flux','Accumulated Flux'),floatfmt='1.4f')
 
 do_tpt()
