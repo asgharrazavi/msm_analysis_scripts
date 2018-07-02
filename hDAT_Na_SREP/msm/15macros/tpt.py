@@ -1,9 +1,6 @@
 import numpy as np
-import msmbuilder.tpt as tpt
 from msmbuilder.msm import ContinuousTimeMSM, MarkovStateModel
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-rcParams.update({'figure.autolayout': True})
+import msmbuilder.tpt as tpt
 from tabulate import tabulate
 
 assigns = np.loadtxt('macro15_assigns.txt' ,dtype=int)
@@ -11,7 +8,6 @@ msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose'
 msm.fit(assigns)
 
 def do_tpt():
-    plt.figure(figsize=(15,10))
     # all trajectories start from macrostate 14
     sources = [14]
     # Na+/Na2 is released to intracellular environment at macrostates 5,7,2,3,1,0
