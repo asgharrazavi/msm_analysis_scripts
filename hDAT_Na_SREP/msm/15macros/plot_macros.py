@@ -15,6 +15,7 @@ assigns = np.loadtxt('macro15_assigns.txt')
 gens = np.loadtxt('../gens_all_skip20.txt')
 ev0 = io.loadh('../../tica_files/ev0.h5')['arr_0']
 ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
+projections = np.load('../../tica_files/projected_on_tica_16ns_sep_skip20.npy')
 
 plt.hexbin(ev0, ev1, bins='log', mincnt=1, cmap="Greys")
 
@@ -28,7 +29,7 @@ for i in range(15):
     c = cm.Paired(i/15.,1)
     ev00, ev11 = [], []
     for j in range(50):
-	dd = io.loadh('../../h5/on_tica_l16ns_all_skip20_%d.h5' %j)['arr_0']
+	dd = projections[j]
     	ind = [assigns[j] == i]
 	if i in [0,1,2,3,4,5,7,8,12]:
 	    stride = 1
