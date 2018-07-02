@@ -20,13 +20,9 @@ def do_tpt():
     paths = tpt.paths(sources, sinks, net_flux, remove_path='subtract', flux_cutoff=0.9999999999)
     sort = np.argsort(pfold)
     total_line_width = np.sum(paths[1][0:5])
-    for j in range(5):
+    print tabulate(paths,header=('Path','Flux'))
+    for j in range(10):
 	print "path:", paths[0][j]
 	print "flux:", paths[1][j]
-	x = []
-	for k in range(len(paths[0][j])):
-	    x.extend(np.where(np.arange(100)[sort] == paths[0][j][k])[0])
-	plt.plot(x,pfold[paths[0][j]],linewidth=np.log(paths[1][j]/float(total_line_width)))
-    plt.legend(['%1.8f' %i for i in paths[1][0:5]],fontsize=18,loc='upper left')
 
 do_tpt()
