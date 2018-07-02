@@ -21,9 +21,11 @@ def do_tpt():
     paths = tpt.paths(sources, sinks, net_flux, remove_path='subtract', flux_cutoff=0.9999999999)
     sort = np.argsort(pfold)
     total_line_width = np.sum(paths[1][0:5])
-    print tabulate([np.array(paths[0]).T,np.array(paths[1]).T],headers=('Path','Flux'))
+    data = []
     for j in range(10):
 	print "path:", paths[0][j]
 	print "flux:", paths[1][j]
+	data.append([paths[0][j],paths[1][j])
+    print tabulate(data,headers=('Path','Flux'))
 
 do_tpt()
