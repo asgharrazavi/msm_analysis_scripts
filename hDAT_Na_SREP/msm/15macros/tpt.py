@@ -9,9 +9,11 @@ assigns = np.loadtxt('macro15_assigns.txt' ,dtype=int)
 msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)
 msm.fit(assigns)
 
-def do_tpt(ev_id):
+def do_tpt():
     plt.figure(figsize=(15,10))
+    # all trajectories start from macrostate 14
     sources = [14]
+    # Na+/Na2 is released to intracellular environment at macrostates 5,7,2,3,1,0
     sinks = [5,7,2,3,1,0]
     net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
     pfold = tpt.committors(sources, sinks, msm)
@@ -27,6 +29,4 @@ def do_tpt(ev_id):
 	plt.plot(x,pfold[paths[0][j]],linewidth=np.log(paths[1][j]/float(total_line_width)))
     plt.legend(['%1.8f' %i for i in paths[1][0:5]],fontsize=18,loc='upper left')
 
-for i in [1,8]:
-    print "working on eigenvector:", i
-    do_tpt(i)
+do_tpt()
