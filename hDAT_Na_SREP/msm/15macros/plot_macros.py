@@ -2,11 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mdtraj.io as io
 from matplotlib.colors import LogNorm
-import itertools
-colors = [''.join(a) for a in itertools.product(['o', 'd', '<', '>', '^', '*'],['r', 'b', 'g', 'c', 'm', 'k', 'y'])]
 import matplotlib.cm as cm
 from matplotlib import rcParams
-#rcParams.update({'figure.autolayout': True})
 rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 16})
 
