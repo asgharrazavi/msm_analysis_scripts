@@ -37,12 +37,7 @@ for i in range(15):
 	    stride = 10
 	ev00.extend(dd[:,0][ind][0:-1:stride])
 	ev11.extend(dd[:,1][ind][0:-1:stride])
-    print len(ev00)
-    if i == 8:
-        plt.scatter(ev00,ev11,c=c,cmap='gist_ncar',alpha=0.8, linewidths=0.5)#colors[i])
-    else:
-        plt.scatter(ev00,ev11,c=c,cmap='gist_ncar',alpha=0.8, linewidths=0.5)#colors[i])
+    plt.scatter(ev00,ev11,c=c,cmap='gist_ncar',alpha=0.8, linewidths=0.5)
 
-#plt.savefig('macros10_4.png',dpi=800)
-plt.show()
+plt.savefig('img_macrostates.png',dpi=100)
 
