@@ -18,7 +18,6 @@ The `implied_times2.py` script can be used to get the MSM implied timescales plo
 
 The files `msm_*.dat` are the outputs of building an MSM:
 </br>
-   * `msm_populations.dat` contains thermodynamics information of the system. This is the first eigenvector of the transition propability matrix: `mss_tmat.dat`
-</br>
+   * `msm_populations.dat` contains thermodynamics information of the system. This is the first eigenvector of the transition propability matrix: `msm_tmat.dat`
    * `msm_timescales.dat` contain kinetic information of the system.
 
