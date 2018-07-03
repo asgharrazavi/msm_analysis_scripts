@@ -1,7 +1,8 @@
 ## Workflow
 
-Step 1. /obtain implied timescales plot by using the `implied_times2.py` script.
+Step 1. Obtain the implied timescales plot by using the `implied_times2.py` script.
 </br >
+Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 
 ## Comments
 **MSM lagtime : 48 ns**
