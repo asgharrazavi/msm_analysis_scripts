@@ -14,3 +14,7 @@ Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 </br>
 `img_implied_times.png` shows implied timescale plot for several transition probability matrices. 
 The `implied_times2.py` script can be used to get the MSM implied timescales plot.
+</br>
+The files `msm_*.dat` are the outputs of building an MSM:
+</br>
+
