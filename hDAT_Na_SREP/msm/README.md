@@ -1,5 +1,9 @@
-## Comments
+## Workflow
 
+Step 1. /obtain implied timescales plot by using the `implied_times2.py` script.
+</br >
+
+## Comments
 **MSM lagtime : 48 ns**
 </br >
 
