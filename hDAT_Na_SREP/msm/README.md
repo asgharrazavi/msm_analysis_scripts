@@ -23,7 +23,7 @@ The files `msm_*.dat` are the outputs of building an MSM:
    * `msm_cmat.dat` is the **count** matrix, i.e. how many times a microstate has transitioned to another microstates during the entire 50 microsecond simulations. 
 `msm_tmat.dat` is obtained simply by row-normalizing the count matrix.
    * `msm_tmat.dat` is the **transition probability matrix**.
-   * The eigenvalues and eigenvectors of transition probability matrix, `msm_tmat.dat`, are saved at `msm_eigenvalues.dat` and `msm_left_eigenvectors.dat` files.
+   * The eigenvalues and eigenvectors of the transition probability matrix, `msm_tmat.dat`, are saved at `msm_eigenvalues.dat` and `msm_left_eigenvectors.dat` files.
    * `msm_timescales_uncertainty.dat` contains mathematical uncertainties for the MSM eigenvalues. Nore that the errors from sampling and dimentionality reductions are 
 much more dominent than these mathematical uncertainties. 
    * If ergodic trimming is used, the `msm_mapping.dat` shows which microstates are trimmed (i.e., not used in calculating transition probability matrix). 
