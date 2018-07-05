@@ -16,3 +16,4 @@ The script `micro_to_macro.py` is used to generate these.
 </br>
 `img_macrostates.png` shows macrostates on the tICA landscape.
 </br>
+`tpt.py` prints out pathways and corresponding fluxes.
