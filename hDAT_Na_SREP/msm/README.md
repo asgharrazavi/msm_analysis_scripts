@@ -22,4 +22,5 @@ The files `msm_*.dat` are the outputs of building an MSM:
    * `msm_timescales.dat` contain kinetic information of the system. These are the 2nd, 3rd, etc. eigenvectors of the transition propability matrix: `msm_tmat.dat`.
    * `msm_cmat.dat` is the **count** matrix, i.e. how many times a microstate has transitioned to another microstates during the entire 50 microsecond simulations. 
 `msm_tmat.dat` is obtained simply by row-normalizing the count matrix.
-
+   * `msm_tmat.dat` is the **transition probability matrix**.
+   * `msm_timescales_uncertainty.dat` contains mathematical uncertainties for the MSM eigenvalues. 
