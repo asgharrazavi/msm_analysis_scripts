@@ -4,15 +4,16 @@ import mdtraj as md
 import multiprocessing
 
 ref = md.load('../../md_files/ionized.pdb')
+all_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
 
 def save_xtc(macro_id,idd):
     xyz, lens = [], 0
-    for j in range(64):
-	assigns = np.loadtxt('macro12_assigns_%d.txt' %j,dtype=int)[::5]		#skip5
+    for j in range(50):
+	assigns = all_assigns[j]
     	ss = np.where(assigns == macro_id)[0]
     	if len(ss) == 0:
 	    continue
-    	t = md.load('../../md_files/stage%d/ensemble_%d_skip5.xtc' %(stage,j-start),top=ref)
+    	t = md.load('../../md_files/ensemble_%d.xtc' %(stage,j-start),top=ref)
   	print "number of frames belonging to macrostate %d:" %macro_id, len(ss) 
 
 	# trying not to save every single frame
@@ -30,19 +31,20 @@ def save_xtc(macro_id,idd):
 	end = start + xyz[k].shape[0]
         xyz3[start:end,:,:] = xyz[k]
 	start = end
-    t = md.load('../../md_files/ensemble_0_skip5.xtc' ,top=ref)
+    t = md.load('../../md_files/ensemble_0.xtc' ,top=ref)
     t.xyz = xyz3
     print "final xyz.shape (t.xyz.shape):", t.xyz.shape
     t.save_xtc2('gen%d.xtc' %(macro_id))
 
-
+# multi is useful if memory is enough
 multi = False
+macros = range(15)
 if multi:
-    for i in [0,1,3,4,5,8,10]:
+    for i in macros:
         idd = i
         p =  multiprocessing.Process(target=save_xtc,args=(i,i))
         p.start()
 else:
-    for i in [0,1,3,4,5,8,10]:
+    for i in macros:
         save_xtc(i,i)
 
