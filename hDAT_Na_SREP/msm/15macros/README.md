@@ -18,6 +18,7 @@ The script `micro_to_macro.py` is used to generate these.
 </br>
 `tpt.py` prints out pathways and corresponding fluxes.
 </br>
-`macro_*.xtc` contain several frames for each macrostate. The The `extract_frames2.xtc` is used to extract these frames. 
+`macro_*.xtc` contain several frames for each macrostate. The `ionized.psf` files in the `../../md_files` directory can be used to visualize these macrostates. 
+The `extract_frames2.xtc` is used to extract these frames. 
 Due to the large disc sizes the original MD simulations trajectories are not on this repository. 
 
