@@ -25,3 +25,4 @@ The files `msm_*.dat` are the outputs of building an MSM:
    * `msm_tmat.dat` is the **transition probability matrix**.
    * `msm_timescales_uncertainty.dat` contains mathematical uncertainties for the MSM eigenvalues. Nore that the errors from sampling and dimentionality reductions are 
 much more dominent than these mathematical uncertainties. 
+   * If ergodic trimming is used, the `msm_mapping.dat` shows which microstates are trimmed (i.e., not used in calculating transition probability matrix). 
