@@ -10,6 +10,8 @@ Step 3. Build MSM and perform transition path theory (TPT) analysis on macrostat
 
 **macro MSM lagtime : 48 ns**
 </br >
+**number of macro states : 15**
+</br >
 
 `macro15_assigns.txt` contains **macrostate** assignments for all of the 50 MD simulation trajectories. 
 The script `micro_to_macro.py` is used to generate these.
