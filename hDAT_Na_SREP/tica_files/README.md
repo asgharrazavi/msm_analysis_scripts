@@ -24,7 +24,6 @@ The file `img_tica_landscape.png` shows the tICA landscape generated from above 
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
 The file `img_tica_landscapes_eigenvalues.png` shows a projection of all of the 50 MD trajectories on tICA eigenvectors.
 
-
 </br >
 
 `img_parameter_contribution_for_tica_eigenvectors.png` shows that _1st_ tICA reaction coordinates captures Na+/Na2 movement, whereas, the _2nd_ tICA coordinate captures intracellular gate dynamics. 
