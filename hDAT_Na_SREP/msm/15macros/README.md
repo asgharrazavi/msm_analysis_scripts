@@ -23,4 +23,5 @@ The script `micro_to_macro.py` is used to generate these.
 The `macro_*.xtc` files contain several randomly selected frames for each macrostate. The `ionized.psf` file in the `../../md_files` directory can be used to visualize these macrostates. 
 The `extract_frames2.xtc` is used to extract these frames. 
 Due to the large disc sizes the original MD simulations trajectories are not on this repository. 
+</br>
 
