@@ -20,21 +20,17 @@ The numpy file `projected_on_tica_16ns_sep.npy` contains more MD frames that are
 </br >
 
 The file `img_tica_landscape.png` shows the tICA landscape generated from above two numpy files.
-
 </br >
 
 `ev0.h5` and `ev1.h5` are projection of MD simulations data on tICA 1st and 2nd eigenvectors.
 The file `img_tica_landscapes_eigenvalues.png` shows a projection of all of the 50 MD trajectories on tICA eigenvectors.
-
 </br >
 
 `img_parameter_contribution_for_tica_eigenvectors.png` shows that _1st_ tICA reaction coordinates captures Na+/Na2 movement, whereas, the _2nd_ tICA coordinate captures intracellular gate dynamics. 
 This plot is generated using the `plot_parameter_contribution_for_tica_eigenvectors.py` script.
-
 </br >
 
 `img_trajs_on_tica.pdf` shows how tICA landscape is explored during simulation time for several trajectories in which Na+/Na2 eventually is released to the intracellular environment.
-
 </br >
 
 `img_tic_cont_zoom.png` shows accumulated contribution of each tICA eigenvector to total dynamics captured by tICA parameters. See Refrences below:
