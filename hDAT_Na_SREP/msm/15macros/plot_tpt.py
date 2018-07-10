@@ -118,14 +118,17 @@ for path in paths0:
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
 # --------------------------------------------------------------------------------
 
+# --------------------- print TPT pathways ---------------------------------------
 acuu_f = 0
 data =[]
 for j in range(len(paths[1])):
     acuu_f += paths[1][j]/float(total_flux)
     data.append([j,paths[0][j],paths[1][j],paths[1][j]/float(total_flux),acuu_f])
 print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),floatfmt='1.4f')
+# --------------------------------------------------------------------------------
 
-if (1):
+
+
     for i in range(len(pfold)):
         if i in np.unique(all_s):
             if i in [2,10,11] : plt.text(xs[i]-0.2,ys[i]-0.1,i, fontsize=16)
