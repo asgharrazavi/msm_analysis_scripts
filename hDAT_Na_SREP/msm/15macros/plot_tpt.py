@@ -21,7 +21,7 @@ def centerss(map18,gens):
     return cents
         
 def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
-#    plt.hexbin(ev0, ev1, bins='log', mincnt=1, cmap="Greys")
+    plt.hexbin(ev0, ev1, bins='log', mincnt=1, cmap="Greys")
     fmts = ['ro','bo','go','g<','mo','co','m*','c*','r*','b+','y+','y*','c*','g*','r+','r>','b>','g+']
     for i in range(n_macros):
         ind = [map15 == i]
@@ -78,11 +78,6 @@ fluxes = net_flux*100/total_flux
 paths0 = paths[0]
 # --------------------------------------------------------------------------------
                       
-all_s = []
-for i in paths0:
-    all_s.extend(i)
-
-pfold = np.array(pfold) * 50
 
 # ------------------ get center of macrostates on tICA landscape -----------------
 centers = centerss(map15,gens)
@@ -128,6 +123,9 @@ print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),
 # --------------------------------------------------------------------------------
 
 # --------------------- label macrostates on tICA landscape ----------------------
+all_s = []
+for i in paths0:
+    all_s.extend(i)
 for i in range(len(pfold)):
     if i in np.unique(all_s):
         if i in [2,10,11] : plt.text(xs[i]-0.2,ys[i]-0.1,i, fontsize=16)
