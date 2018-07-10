@@ -8,9 +8,6 @@ from msmbuilder.msm import ContinuousTimeMSM, MarkovStateModel
 from tabulate import tabulate
 
 
-fig = plt.figure(figsize=(10,10))
-ax = fig.add_subplot(111)
-
 def centerss(map15,gens):
     cents = []
     n_mac = int(np.max(map15+1))
@@ -56,7 +53,6 @@ msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose'
 msm.fit(macro_assigns)
 # --------------------------------------------------------------------------------
 
-
 # ---------------- build TPT  ----------------------------------------------------
 # starting macro states
 sources = [10]
@@ -74,7 +70,6 @@ fluxes = net_flux*100/total_flux
 # TPT pathways
 paths0 = paths[0]
 # --------------------------------------------------------------------------------
-                      
 
 # ------------------ get center of macrostates on tICA landscape -----------------
 centers = centerss(map15,gens)
@@ -94,6 +89,9 @@ circls = [[xs[0],ys[0],r1,r2],[xs[1],ys[1],r1*1,r2*1],[xs[2],ys[2],r1,r2],[xs[3]
 # ------------------------------------------------------
 
 # -------------------- plot pathways on tICA landscape ----------------------------
+fig = plt.figure(figsize=(10,10))
+ax = fig.add_subplot(111)
+
 # first plot tICA landscape and macrostates
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
