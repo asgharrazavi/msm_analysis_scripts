@@ -30,7 +30,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
     for i in range(n_macros):
         ev00, ev11 = [], []
         for j in range(50):
-            dd = np.dot(raw_data[j],tica['vecs'])
+            dd = raw_data[j][0:len(assigns22[j])]
             ind = [assigns22[j] == i]
             if i in [3]:
                 ev00.extend(dd[:,0][ind][0:-1:1])
@@ -41,22 +41,19 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.2)
 
 
-n_macro = 12
-#data = np.load('../../hdat_wt_s_data_all_skip20.npy')
-data_sep = np.load('../../../data_wt_s_sep_traj_frame_parm.npy')
-tica = io.loadh('../../tica_l20.h5')
-gens = np.loadtxt('../gens.txt')
+# loading input data
+n_macro = 15
+on_tica = np.load('../../tica_files/projected_on_tica_16ns_sep_skip20.npy')
+gens = np.loadtxt('../gens_all_skip20.txt')
 map15 = np.loadtxt('map%d_pccaplus.dat' %n_macro,dtype=int)
-macro_assigns = []
-for i in range(50): macro_assigns.append(np.loadtxt('macro%d_assigns_%d.txt' %(n_macro,i), dtype=int))
+macro_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
+ev0 = io.loadh('../../tica_files/ev0.h5')['arr_0']
+ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
 
-ev0 = io.loadh('../../ev0.h5')['arr_0']
-ev1 = io.loadh('../../ev1.h5')['arr_0']
+plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
-plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,data_sep)
-
-# 160 == 256 ns
-msm = MarkovStateModel(lag_time=160, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	# 400 ns
+# msm lagtime == 30 steps == 48 ns
+msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
 msm.fit(macro_assigns)
 
 sources = [10]
