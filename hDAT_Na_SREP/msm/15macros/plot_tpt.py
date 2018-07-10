@@ -12,6 +12,7 @@ fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
 def centerss(map18,gens):
+    # getting center of macrostates
     cents = []
     n_mac = int(np.max(map18+1))
     for i in range(n_mac):
@@ -38,6 +39,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
                 ev00.extend(dd[:,0][ind][0:-1:1])
                 ev11.extend(dd[:,1][ind][0:-1:1])
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.2)
+
 
 n_macro = 12
 #data = np.load('../../hdat_wt_s_data_all_skip20.npy')
