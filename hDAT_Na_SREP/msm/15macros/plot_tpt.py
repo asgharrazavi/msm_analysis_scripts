@@ -127,7 +127,6 @@ for j in range(len(paths[1])):
 print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),floatfmt='1.4f')
 # --------------------------------------------------------------------------------
 
-
 # --------------------- label macrostates on tICA landscape ----------------------
 for i in range(len(pfold)):
     if i in np.unique(all_s):
@@ -140,8 +139,4 @@ for i in range(len(pfold)):
 # --------------------------------------------------------------------------------
 
 
-        
-#plt.xlim([-10,0])
-#plt.ylim([0.5,4])
 plt.savefig('img_tpt_paths.png',dpi=100)
-#plt.show()
