@@ -41,7 +41,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.2)
 
 
-# loading input data
+# --------------- loading input data ---------------------------------------------
 n_macro = 15
 on_tica = np.load('../../tica_files/projected_on_tica_16ns_sep_skip20.npy')
 gens = np.loadtxt('../gens_all_skip20.txt')
@@ -49,27 +49,34 @@ map15 = np.loadtxt('map%d_pccaplus.dat' %n_macro,dtype=int)
 macro_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
 ev0 = io.loadh('../../tica_files/ev0.h5')['arr_0']
 ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
+# --------------------------------------------------------------------------------
 
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
+# ---------------- build macro MSM -----------------------------------------------
 # msm lagtime == 30 steps == 48 ns
 msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
 msm.fit(macro_assigns)
+# --------------------------------------------------------------------------------
 
+
+# ---------------- build TPT  ----------------------------------------------------
+# starting macro states
 sources = [10]
+# ending macro states
 sinks = [0,1,4]
 net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
-#np.savetxt('net_flux2.txt',net_flux)
-print "net_flux.shape:", net_flux.shape
+print "TPT net_flux.shape:", net_flux.shape
 pfold = tpt.committors(sources, sinks, msm)
 paths = tpt.paths(sources, sinks, net_flux, remove_path='subtract', flux_cutoff=0.999999999)
 sort = np.argsort(pfold)
 total_line_width = np.sum(paths[1][0:5])
 total_flux = np.sum(paths[1])
-
+# normaize fluxes and * 100 for better visualization
 fluxes = net_flux*100/total_flux
-
-paths0 = paths[0]#[0:10]
+# TPT pathways
+paths0 = paths[0]
+# --------------------------------------------------------------------------------
                       
 all_s = []
 for i in paths0:
