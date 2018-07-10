@@ -55,7 +55,7 @@ msm.fit(macro_assigns)
 
 # ---------------- build TPT  ----------------------------------------------------
 # starting macro states
-sources = [10]
+sources = [14]
 # ending macro states
 sinks = [0,1,4]
 net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
