@@ -92,15 +92,16 @@ centers = np.array(centers)
 xs = centers[:,0]
 ys = centers[:,1]
 
+# ---------- circles to represent macro states ---------
 r1, r2 = 0.1 , 0.12
 circls = [[xs[0],ys[0],r1,r2],[xs[1],ys[1],r1*1,r2*1],[xs[2],ys[2],r1,r2],[xs[3],ys[3],r1,r2],[xs[4],ys[4],r1*1,r2*1],
           [xs[5],ys[5],r1*1,r2*1],[xs[6],ys[6],r1,r2],[xs[7], ys[7], r1*1,r2*1],[xs[8],ys[8],r1*1,r2*1],[xs[9],ys[9],r1,r2],
           [xs[10],ys[10],r1,r2],[xs[11],ys[11],r1,r2],
-#	   [xs[12],ys[12],r1*1,r2*1],[xs[13],ys[13],r1,r2],[xs[14],ys[14],r1,r2],
-#          [xs[15],ys[15],r1,r2],[xs[16],ys[16],r1,r2],[xs[17],ys[17],r1*1,r2*1]
+	  [xs[12],ys[12],r1*1,r2*1],[xs[13],ys[13],r1,r2],[xs[14],ys[14],r1,r2],
          ]
+# ------------------------------------------------------
 
-
+# -------------------- plot pathways on tICA landscape ----------------------------
 for path in paths0:
     for i in range(len(path)-1):
         c1 = circls[path[i]]
@@ -115,6 +116,7 @@ for path in paths0:
         else: arowprops = dict(arrowstyle="simple", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)
         ax.annotate('', xy=(xs[path[i+1]], ys[path[i+1]]), xytext=(xs[path[i]], ys[path[i]]),
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
+# --------------------------------------------------------------------------------
 
 acuu_f = 0
 data =[]
