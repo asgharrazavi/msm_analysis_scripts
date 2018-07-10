@@ -11,12 +11,11 @@ from tabulate import tabulate
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
-def centerss(map18,gens):
-    # getting center of macrostates
+def centerss(map15,gens):
     cents = []
-    n_mac = int(np.max(map18+1))
+    n_mac = int(np.max(map15+1))
     for i in range(n_mac):
-        ind = [map18 == i]
+        ind = [map15 == i]
         cents.append([np.mean(gens[:,0][ind]), np.mean(gens[:,1][ind])])
     return cents
         
@@ -51,8 +50,6 @@ ev0 = io.loadh('../../tica_files/ev0.h5')['arr_0']
 ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
 # --------------------------------------------------------------------------------
 
-plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
-
 # ---------------- build macro MSM -----------------------------------------------
 # msm lagtime == 30 steps == 48 ns
 msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
@@ -84,10 +81,10 @@ centers = centerss(map15,gens)
 centers = np.array(centers)
 # --------------------------------------------------------------------------------
 
+# ---------- circles to represent macro states ---------
 xs = centers[:,0]
 ys = centers[:,1]
 
-# ---------- circles to represent macro states ---------
 r1, r2 = 0.1 , 0.12
 circls = [[xs[0],ys[0],r1,r2],[xs[1],ys[1],r1*1,r2*1],[xs[2],ys[2],r1,r2],[xs[3],ys[3],r1,r2],[xs[4],ys[4],r1*1,r2*1],
           [xs[5],ys[5],r1*1,r2*1],[xs[6],ys[6],r1,r2],[xs[7], ys[7], r1*1,r2*1],[xs[8],ys[8],r1*1,r2*1],[xs[9],ys[9],r1,r2],
@@ -96,7 +93,11 @@ circls = [[xs[0],ys[0],r1,r2],[xs[1],ys[1],r1*1,r2*1],[xs[2],ys[2],r1,r2],[xs[3]
          ]
 # ------------------------------------------------------
 
+
 # -------------------- plot pathways on tICA landscape ----------------------------
+# first plot tICA landscape and macrostates
+plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
+
 for path in paths0:
     for i in range(len(path)-1):
         c1 = circls[path[i]]
