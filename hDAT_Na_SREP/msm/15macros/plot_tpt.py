@@ -84,8 +84,10 @@ for i in paths0:
 
 pfold = np.array(pfold) * 50
 
+# ------------------ get center of macrostates on tICA landscape -----------------
 centers = centerss(map15,gens)
 centers = np.array(centers)
+# --------------------------------------------------------------------------------
 
 xs = centers[:,0]
 ys = centers[:,1]
