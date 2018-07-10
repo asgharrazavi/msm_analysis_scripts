@@ -57,7 +57,7 @@ msm.fit(macro_assigns)
 # starting macro states
 sources = [14]
 # ending macro states
-sinks = [0,1,4]
+sinks = [1,3,5,7]
 net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
 print "TPT net_flux.shape:", net_flux.shape
 pfold = tpt.committors(sources, sinks, msm)
