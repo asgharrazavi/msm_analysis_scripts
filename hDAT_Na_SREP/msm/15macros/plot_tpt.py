@@ -107,7 +107,6 @@ for path in paths0:
         ax.add_patch(cir2)
         if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="simple,head_length=1,head_width=4,tail_width=0.1", fc="k", ec="k", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
         elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="simple,head_length=1,head_width=2,tail_width=0.1", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
-#        else: arowprops = dict(arrowstyle="simple,head_length=0.4,head_width=0.7,tail_width=0.1", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)#,head_width=2)
         else: arowprops = dict(arrowstyle="simple", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)
         ax.annotate('', xy=(xs[path[i+1]], ys[path[i+1]]), xytext=(xs[path[i]], ys[path[i]]),
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
