@@ -129,14 +129,14 @@ print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),
 
 
 
-    for i in range(len(pfold)):
-        if i in np.unique(all_s):
-            if i in [2,10,11] : plt.text(xs[i]-0.2,ys[i]-0.1,i, fontsize=16)
-            elif i in [3,7,6] : plt.text(xs[i],ys[i]-0.25,i, fontsize=16)
-            elif i in [9]: plt.text(xs[i]-0.05,ys[i]-0.25,i, fontsize=16)
-            elif i in [1,4,0]: plt.text(xs[i]+0.1,ys[i]+0.05,i, fontsize=16)
-            elif i in [5,8]: plt.text(xs[i]+0.05,ys[i]+0.05,i, fontsize=16)
-            else: plt.text(xs[i],ys[i],i, fontsize=16)
+for i in range(len(pfold)):
+    if i in np.unique(all_s):
+        if i in [2,10,11] : plt.text(xs[i]-0.2,ys[i]-0.1,i, fontsize=16)
+        elif i in [3,7,6] : plt.text(xs[i],ys[i]-0.25,i, fontsize=16)
+        elif i in [9]: plt.text(xs[i]-0.05,ys[i]-0.25,i, fontsize=16)
+        elif i in [1,4,0]: plt.text(xs[i]+0.1,ys[i]+0.05,i, fontsize=16)
+        elif i in [5,8]: plt.text(xs[i]+0.05,ys[i]+0.05,i, fontsize=16)
+        else: plt.text(xs[i],ys[i],i, fontsize=16)
 
 
         
