@@ -93,7 +93,6 @@ circls = [[xs[0],ys[0],r1,r2],[xs[1],ys[1],r1*1,r2*1],[xs[2],ys[2],r1,r2],[xs[3]
          ]
 # ------------------------------------------------------
 
-
 # -------------------- plot pathways on tICA landscape ----------------------------
 # first plot tICA landscape and macrostates
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
