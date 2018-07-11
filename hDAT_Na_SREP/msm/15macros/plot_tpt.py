@@ -64,8 +64,6 @@ total_line_width = np.sum(paths[1][0:5])
 total_flux = np.sum(paths[1])
 # normaize fluxes and * 100 for better visualization
 fluxes = net_flux*80/total_flux
-# TPT pathways
-paths0 = paths[0]
 # --------------------------------------------------------------------------------
 
 # ------------------ get center of macrostates on tICA landscape -----------------
@@ -92,7 +90,8 @@ ax = fig.add_subplot(111)
 # first plot tICA landscape and macrostates
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
-for path in paths0:
+n_paths = 10
+for path in paths[0][0:n_paths]:
     for i in range(len(path)-1):
         c1 = circls[path[i]]
         c2 = circls[path[i+1]]
