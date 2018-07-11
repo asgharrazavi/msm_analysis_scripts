@@ -117,7 +117,7 @@ print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),
 
 # --------------------- label macrostates on tICA landscape ----------------------
 all_s = []
-for i in paths0:
+for i in paths[0]:
     all_s.extend(i)
 for i in range(len(pfold)):
     if i in np.unique(all_s):
