@@ -63,7 +63,7 @@ sort = np.argsort(pfold)
 total_line_width = np.sum(paths[1][0:5])
 total_flux = np.sum(paths[1])
 # normaize fluxes and * 100 for better visualization
-fluxes = net_flux*50/total_flux
+fluxes = net_flux*80/total_flux
 # TPT pathways
 paths0 = paths[0]
 # --------------------------------------------------------------------------------
