@@ -70,7 +70,7 @@ paths0 = paths[0]
 # --------------------------------------------------------------------------------
 
 # ------------------ get center of macrostates on tICA landscape -----------------
-centers = get_macro_centers(map15,gens)
+centers = get_macro_centers(n_macro,map15,gens)
 centers = np.array(centers)
 # --------------------------------------------------------------------------------
 
