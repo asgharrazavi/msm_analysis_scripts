@@ -21,7 +21,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
     for i in range(n_macros):
         ind = [map15 == i]
         plt.plot(gens[:,0][ind],gens[:,1][ind],fmts[i])#colors[i])
-    plt.legend(range(n_macros),ncol=18,labelspacing=0.2,numpoints=1,handletextpad=0.01,handlelength=0.5,columnspacing=0.8,shadow=True,fancybox=True,fontsize=14,bbox_to_anchor=(0.95,1.1))
+    plt.legend(range(n_macros),ncol=n_macros,labelspacing=0.2,numpoints=1,handletextpad=0.01,handlelength=0.5,columnspacing=0.8,shadow=True,fancybox=True,fontsize=18,bbox_to_anchor=(0.95,1.1))
     for i in range(n_macros):
         ev00, ev11 = [], []
         for j in range(50):
