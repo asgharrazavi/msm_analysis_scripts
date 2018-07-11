@@ -27,12 +27,8 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
         for j in range(50):
             dd = raw_data[j][0:len(assigns22[j])]
             ind = [assigns22[j] == i]
-            if i in [3]:
-                ev00.extend(dd[:,0][ind][0:-1:1])
-                ev11.extend(dd[:,1][ind][0:-1:1])
-            else:
-                ev00.extend(dd[:,0][ind][0:-1:1])
-                ev11.extend(dd[:,1][ind][0:-1:1])
+            ev00.extend(dd[:,0][ind][0:-1:1])
+            ev11.extend(dd[:,1][ind][0:-1:1])
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.2)
 
 
