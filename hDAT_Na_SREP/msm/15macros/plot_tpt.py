@@ -9,6 +9,7 @@ from tabulate import tabulate
 
 
 def get_macro_centers(n_macro,map15,gens):
+    cents = []
     for i in range(n_macro):
         ind = [map15 == i]
         cents.append([np.mean(gens[:,0][ind]), np.mean(gens[:,1][ind])])
