@@ -90,7 +90,7 @@ ax = fig.add_subplot(111)
 # first plot tICA landscape and macrostates
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
-n_paths = 10
+n_paths = 7
 for path in paths[0][0:n_paths]:
     for i in range(len(path)-1):
         c1 = circls[path[i]]
@@ -99,8 +99,9 @@ for path in paths[0][0:n_paths]:
         cir2 = Ellipse((c2[0],c2[1]),c2[2],c2[3],fill=False)
         ax.add_patch(cir1)
         ax.add_patch(cir2)
-        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=4,tail_width=1.1", fc="k", ec="k", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
-        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=2,tail_width=1.1", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+	# editing arrow properties from some of the pathways for better viualization
+        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=1,tail_width=1", fc="k", ec="w", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=1,tail_width=1", fc="0.1", ec="w", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
         else: arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)
         ax.annotate('', xy=(xs[path[i+1]], ys[path[i+1]]), xytext=(xs[path[i]], ys[path[i]]),
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
