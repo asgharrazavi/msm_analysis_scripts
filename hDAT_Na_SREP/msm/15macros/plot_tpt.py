@@ -63,7 +63,7 @@ sort = np.argsort(pfold)
 total_line_width = np.sum(paths[1][0:5])
 total_flux = np.sum(paths[1])
 # normaize fluxes and * 100 for better visualization
-fluxes = net_flux*100/total_flux
+fluxes = net_flux*50/total_flux
 # TPT pathways
 paths0 = paths[0]
 # --------------------------------------------------------------------------------
@@ -100,8 +100,8 @@ for path in paths0:
         cir2 = Ellipse((c2[0],c2[1]),c2[2],c2[3],fill=False)
         ax.add_patch(cir1)
         ax.add_patch(cir2)
-        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=4,tail_width=0.1", fc="k", ec="k", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
-        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=2,tail_width=0.1", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=4,tail_width=1.1", fc="k", ec="k", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=1,head_width=2,tail_width=1.1", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
         else: arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)
         ax.annotate('', xy=(xs[path[i+1]], ys[path[i+1]]), xytext=(xs[path[i]], ys[path[i]]),
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
