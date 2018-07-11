@@ -29,7 +29,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
             ind = [assigns22[j] == i]
             ev00.extend(dd[:,0][ind][0:-1:1])
             ev11.extend(dd[:,1][ind][0:-1:1])
-        plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.2)
+        plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.3,markersize=8)
 
 
 # --------------- loading input data ---------------------------------------------
