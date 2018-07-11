@@ -8,10 +8,8 @@ from msmbuilder.msm import ContinuousTimeMSM, MarkovStateModel
 from tabulate import tabulate
 
 
-def centerss(map15,gens):
-    cents = []
-    n_mac = int(np.max(map15+1))
-    for i in range(n_mac):
+def get_macro_centers(n_macro,map15,gens):
+    for i in range(n_macro):
         ind = [map15 == i]
         cents.append([np.mean(gens[:,0][ind]), np.mean(gens[:,1][ind])])
     return cents
@@ -72,7 +70,7 @@ paths0 = paths[0]
 # --------------------------------------------------------------------------------
 
 # ------------------ get center of macrostates on tICA landscape -----------------
-centers = centerss(map15,gens)
+centers = get_macro_centers(map15,gens)
 centers = np.array(centers)
 # --------------------------------------------------------------------------------
 
