@@ -8,6 +8,7 @@ Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 **MSM lagtime : 48 ns**
 </br >
 **Number of microstates : 100**
+
 </br >
 
 `assigns_all_skip20.txt` contains assignments for all of the 50 MD trajectories.
