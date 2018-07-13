@@ -37,5 +37,6 @@ The `plot_tpt.py` script is not limited to hDAT and can be used to for any syste
    * `gens.txt` : microstate centers on tICA landscape.
    * `ev0.h5` : projection of all of the MD simulations data on the first tICA reaction coordinate.
    * `ev1.h5` : projection of all of the MD simulations data on the second tICA reaction coordinate.
+   * `projected_on_tica_16ns_sep_skip20.npy` : projection of individual trajectories on tICA space.
 
 
