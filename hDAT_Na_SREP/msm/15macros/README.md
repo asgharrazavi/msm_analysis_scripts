@@ -34,5 +34,6 @@ For the hDAT system these pathways are saved in `img_tpt_first_7_paths.png` and 
 
 </br>
 As long as you have these input files:
+   * `gens.txt` : microstate centers on tICA landscape
 
 
