@@ -35,6 +35,7 @@ For the hDAT system these pathways are saved in `img_tpt_first_7_paths.png` and 
 </br>
 The `plot_tpt.py` script is not limited to hDAT and can be used to for any system, as long as you have the following input files:
    * `gens.txt` : microstate centers on tICA landscape.
-   * `ev0.h5` : projection of all of the MD simulations data on first tICA reaction coordinate.
+   * `ev0.h5` : projection of all of the MD simulations data on the first tICA reaction coordinate.
+   * `ev1.h5` : projection of all of the MD simulations data on the second tICA reaction coordinate.
 
 
