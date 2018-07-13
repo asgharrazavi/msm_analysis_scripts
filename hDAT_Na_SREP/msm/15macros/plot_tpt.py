@@ -7,7 +7,7 @@ import msmbuilder.tpt as tpt
 from msmbuilder.msm import ContinuousTimeMSM, MarkovStateModel
 from tabulate import tabulate
 
-
+# ========================================== functions ==========================
 def get_macro_centers(n_macro,map15,gens):
     cents = []
     for i in range(n_macro):
@@ -32,6 +32,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.3,markersize=8)
     plt.xlim([np.min(ev0)-0.1,np.max(ev0)+0.1])
     plt.ylim([np.min(ev1)-0.1,np.max(ev1)+0.1])
+# ================================================================================
 
 
 # --------------- loading input data ---------------------------------------------
