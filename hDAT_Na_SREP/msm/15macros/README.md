@@ -32,3 +32,7 @@ Due to the large disc sizes the original MD simulations trajectories are not on 
 The `plot_tpt.py` script can be used to plot TPT identified pathways on the tICA landscape. 
 For the hDAT system these pathways are saved in `img_tpt_first_7_paths.png` and `img_tpt_paths.png`. 
 
+</br>
+As long as you have these input files:
+
+
