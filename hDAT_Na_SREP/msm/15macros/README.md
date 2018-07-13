@@ -33,7 +33,7 @@ The `plot_tpt.py` script can be used to plot TPT identified pathways on the tICA
 For the hDAT system these pathways are saved in `img_tpt_first_7_paths.png` and `img_tpt_paths.png`. 
 
 </br>
-As long as you have these input files:
+The `plot_tpt.py` script is not limited to hDAT and can be used to for any system, as long as you have the following input files:
    * `gens.txt` : microstate centers on tICA landscape
 
 
