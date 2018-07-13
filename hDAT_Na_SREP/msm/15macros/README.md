@@ -29,4 +29,5 @@ The `extract_frames2.xtc` is used to extract these frames.
 Due to the large disc sizes the original MD simulations trajectories are not on this repository. 
 </br>
 
+The `plot_tpt.py` script can be used to plot tPT pathways on tICA landscape. 
 
