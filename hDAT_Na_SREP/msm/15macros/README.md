@@ -40,5 +40,3 @@ The `plot_tpt.py` script is not limited to hDAT and can be used to map TPT pathw
    * `ev1.h5` : projection of all of the MD simulations data on the second tICA reaction coordinate.
    * `projected_on_tica_16ns_sep_skip20.npy` : projection of individual trajectories on tICA space.
    * `macro_assignments.txt` : assignments for each of the simulations trajectories for macrostates. 
-
-
