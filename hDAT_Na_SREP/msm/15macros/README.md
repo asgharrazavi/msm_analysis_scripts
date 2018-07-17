@@ -29,7 +29,7 @@ The `extract_frames2.xtc` is used to extract these frames.
 Due to the large disc sizes the original MD simulations trajectories are not on this repository. 
 </br>
 
-The `plot_tpt.py` script plots TPT pathways and can be used to plot TPT identified pathways on the tICA landscape. 
+The `plot_tpt.py` script can be used to plot TPT identified pathways on the tICA landscape. 
 For the hDAT system these pathways are saved in `img_tpt_first_7_paths.png` and `img_tpt_paths.png` files.
 </br>
 
