@@ -21,7 +21,7 @@ Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 The `implied_times2.py` script can be used to get the MSM implied timescales plot.
 </br>
 
-The files `msm_*.dat` are the outputs of building an MSM:
+The files `msm_*.dat` are the outputs generated from building an MSM:
 </br>
    * `msm_populations.dat` contains thermodynamics information of the system. This is the first eigenvector of the transition propability matrix: `msm_tmat.dat`.
    * `msm_timescales.dat` contains kinetic information of the system. These are the 2nd, 3rd, etc. eigenvectors of the transition propability matrix: `msm_tmat.dat`.
