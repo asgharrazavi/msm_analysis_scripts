@@ -115,7 +115,7 @@ except Exception:  #type?
 # See github issue #852.
 
 
-# ASGHAR: similar to the saveh function but with added ability to supply keywards for each array
+# ================= ASGHAR: similar to the saveh function but with added ability to supply keywards for each array ============================
 def saveh2(file, keys2, *args, **kwargs):
     if isinstance(file, basestring):
         if TABLES2:
@@ -142,7 +142,7 @@ def saveh2(file, keys2, *args, **kwargs):
 #                ' and keyword %s' % key)
         namedict[key] = val
 
-#------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
     # ensure that they don't already exist							# this section removed by ASGHAR for speed up
 #    if TABLES2:
 #        current_nodes = [e.name for e in handle.listNodes(where='/')]
@@ -190,7 +190,7 @@ def saveh2(file, keys2, *args, **kwargs):
     handle.flush()
     if own_fid:
         handle.close()
-
+#===================================================================================================================================================
 
 
 def saveh(file, *args, **kwargs):
