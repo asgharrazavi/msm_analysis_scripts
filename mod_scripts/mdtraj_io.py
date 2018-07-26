@@ -141,6 +141,7 @@ def saveh2(file, keys2, *args, **kwargs):
 #                ' and keyword %s' % key)
         namedict[key] = val
 
+#------------------------------------------------------------------------------------------------------------------------------------------------
     # ensure that they don't already exist							# this section removed by ASGHAR for speed up
 #    if TABLES2:
 #        current_nodes = [e.name for e in handle.listNodes(where='/')]
@@ -156,6 +157,7 @@ def saveh2(file, keys2, *args, **kwargs):
             # per discussion on github, https://github.com/rmcgibbo/mdtraj/issues/5
             # silent overwriting appears to be the desired functionality
             # raise IOError('Array already exists in file: %s' % key)
+#------------------------------------------------------------------------------------------------------------------------------------------------
 
     # save all the arrays
     try:
