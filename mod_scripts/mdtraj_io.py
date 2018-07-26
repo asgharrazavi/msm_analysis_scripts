@@ -115,6 +115,7 @@ except Exception:  #type?
 # See github issue #852.
 
 
+# ASGHAR: similar to the saveh function but with added ability to supply keywards for each array
 def saveh2(file, keys2, *args, **kwargs):
     if isinstance(file, basestring):
         if TABLES2:
