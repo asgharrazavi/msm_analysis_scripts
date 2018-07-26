@@ -1,5 +1,5 @@
 
-### Scripts for calculating tICA and MSM in this paper:
+### Some frequently used scripts with added functions:
 
 ###     A Markov State-based Quantitative Kinetic Model of Sodium Release from the Dopamine Transporter
 
