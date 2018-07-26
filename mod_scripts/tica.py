@@ -541,6 +541,7 @@ Top 5 eigenvalues :
            kinetic_mapping=self.kinetic_mapping, timescales=self.timescales_[:5],
            eigenvalues=self.eigenvalues_[:5])
 
+# ----------------------------------- a simple function to save tICA outputs -----------------------------------
     def save(self,outname):									#ASGHAR
 	io.saveh(outname,components=self.components_)						#ASGHAR
 	io.saveh(outname,covariance=self.covariance_)						#ASGHAR
@@ -548,6 +549,7 @@ Top 5 eigenvalues :
 	io.saveh(outname,lag_time=np.array([self.lag_time]))					#ASGHAR
 	io.saveh(outname,vals=self.eigenvalues_)						#ASGHAR
 	io.saveh(outname,vecs=self.eigenvectors_)						#ASGHAR
+#---------------------------------------------------------------------------------------------------------------
 
 
 def rao_blackwell_ledoit_wolf(S, n):
