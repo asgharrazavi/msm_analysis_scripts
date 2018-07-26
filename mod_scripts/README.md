@@ -1,3 +1,3 @@
 
-### Some frequently used scripts with added functions:
+### Some frequently used scripts from MDTraj and MSMBuilder software with added functions
 
