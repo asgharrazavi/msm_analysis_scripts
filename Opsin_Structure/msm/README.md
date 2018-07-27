@@ -6,7 +6,7 @@ step2: choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalue
 
 # Comments
 
-*msm lagtime: 40 ns*
+**msm lagtime: 40 ns**
 
 MSM could be build on a _macrostate_ level for better visualization of 
 metastable states and transitions among them and obtaining flux values that capture conformational
