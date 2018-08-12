@@ -59,6 +59,7 @@ def plot_evs():
         fig.add_subplot(ax)
     plt.savefig('msm_relaxation_times3.pdf')
 
+# load assignments
 assigns = []
 for i in range(64):
     assigns.append(np.loadtxt('../assigns/assigns_%d.txt' %i ,dtype=int))
