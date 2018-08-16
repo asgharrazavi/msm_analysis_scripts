@@ -3,9 +3,6 @@ import numpy as np
 import mdtraj as md
 import multiprocessing
 
-ref = md.load('../../md_files/ionized.pdb')
-all_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
-
 def save_xtc(macro_id,idd):
     xyz, lens = [], 0
     for j in range(50):
@@ -35,6 +32,10 @@ def save_xtc(macro_id,idd):
     t.xyz = xyz3
     print "final xyz.shape (t.xyz.shape):", t.xyz.shape
     t.save_xtc2('gen%d.xtc' %(macro_id))
+
+# load inputs
+ref = md.load('../../md_files/ionized.pdb')
+all_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
 
 # multi is useful if memory is enough
 multi = False
