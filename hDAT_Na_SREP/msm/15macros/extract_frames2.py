@@ -31,7 +31,7 @@ def save_xtc(macro_id,idd):
 	end = start + xyz[k].shape[0]
         xyz3[start:end,:,:] = xyz[k]
 	start = end
-    t = md.load('../../md_files/ensemble_0.xtc' ,top=ref)
+#    t = md.load('../../md_files/ensemble_0.xtc' ,top=ref)
     t.xyz = xyz3
     print "final xyz.shape (t.xyz.shape):", t.xyz.shape
     t.save_xtc2('gen%d.xtc' %(macro_id))
