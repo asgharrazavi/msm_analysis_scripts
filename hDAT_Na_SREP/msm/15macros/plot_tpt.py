@@ -49,6 +49,7 @@ ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
 # --------------------------------------------------------------------------------
 
 # ---------------- build macro MSM -----------------------------------------------
+print "building macrostate MSM..."
 # msm lagtime == 30 steps == 48 ns
 msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
 msm.fit(macro_assigns)
