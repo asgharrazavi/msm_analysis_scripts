@@ -56,6 +56,7 @@ msm.fit(macro_assigns)
 # --------------------------------------------------------------------------------
 
 # ---------------- build TPT  ----------------------------------------------------
+print "building TPT..."
 # starting macro states
 sources = [14]
 # ending macro states
