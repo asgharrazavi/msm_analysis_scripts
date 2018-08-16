@@ -38,6 +38,7 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
 
 
 # --------------- loading input data ---------------------------------------------
+print "loading input data..."
 n_macro = 15
 on_tica = np.load('../../tica_files/projected_on_tica_16ns_sep_skip20.npy')
 gens = np.loadtxt('../gens_all_skip20.txt')
