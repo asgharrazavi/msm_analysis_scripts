@@ -88,6 +88,7 @@ for i in range(n_macro):
 # ------------------------------------------------------
 
 # -------------------- plot pathways on tICA landscape ----------------------------
+print "plotting TPT pathways on tICA space..."
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
