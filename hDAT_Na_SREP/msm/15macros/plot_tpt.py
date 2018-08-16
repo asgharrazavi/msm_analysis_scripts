@@ -9,7 +9,7 @@ from tabulate import tabulate
 
 # ========================================== functions ==========================
 def get_macro_centers(n_macro,map15,gens):
-   print "getting macrostate centers..."
+   print "\tgetting macrostate centers..."
     cents = []
     for i in range(n_macro):
         ind = [map15 == i]
@@ -17,7 +17,7 @@ def get_macro_centers(n_macro,map15,gens):
     return cents
         
 def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
-    print "plotting macrostate tICA space..."
+    print "\tplotting macrostate tICA space..."
     plt.hexbin(ev0, ev1, bins='log', mincnt=1, cmap="Greys")
     fmts = ['ro','bo','go','g<','mo','co','m*','c*','r*','b+','y+','y*','c*','g*','r+','r>','b>','g+']
     for i in range(n_macros):
