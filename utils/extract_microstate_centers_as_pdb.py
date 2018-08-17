@@ -12,16 +12,18 @@ def on_tica_data():
     np.save('on_tica.npy',data)
     return data
 
+# load inputs
 ref = md.load('/Volumes/ls/from_imac/opsin/ionized.pdb')
 gens = np.loadtxt('gens.txt')
 assigns = np.load('assigns.npy')
-
 
 try : 
     on_tica = np.load('on_tica.npy')
 except: 
     on_tica = on_tica_data()
 
+
+# obtain trajectory id and frame number for each microstate
 trajs, frames = [], []
 for i in range(len(gens)):
     mins = []
