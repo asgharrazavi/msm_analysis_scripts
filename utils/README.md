@@ -1,2 +1,2 @@
 # msm_analysis_scripts
-Some python scripts for building and analyzing MSMs (Markov State Models)
+Some pyton utility scripts for extracting information from MSMs (Markov State Models)
