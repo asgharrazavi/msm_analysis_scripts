@@ -30,7 +30,6 @@ for i in range(len(gens)):
 	p2 = on_tica[j][:,2][::5]
 	ss = (p0 - gens[i][0])**2 + (p1 - gens[i][1])**2 + (p2 - gens[i][2])**2 
         a = np.argmin( ss )
-#	print i, j, gens[i], on_tica[j][a][0:3], ss[a]
 	mins.append([ss[a],a])
     mins = np.array(mins)
     b = np.argmin(mins[:,0])
