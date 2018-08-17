@@ -16,8 +16,10 @@ def on_tica_data():
     np.save('on_tica.npy',data)
     return data
 
-#on_tica = on_tica_data()
+try : 
 on_tica = np.load('on_tica.npy')
+except: 
+#on_tica = on_tica_data()
 
 trajs, frames = [], []
 for i in range(len(gens)):
