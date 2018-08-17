@@ -3,10 +3,6 @@ import numpy as np
 import mdtraj as md
 import multiprocessing
 
-ref = md.load('/Volumes/ls/from_imac/opsin/ionized.pdb')
-gens = np.loadtxt('gens.txt')
-assigns = np.load('assigns.npy')
-
 def on_tica_data():
     data = []
     for i in range(len(assigns)):    
@@ -15,6 +11,11 @@ def on_tica_data():
 	data.append(a[:,0:5])
     np.save('on_tica.npy',data)
     return data
+
+ref = md.load('/Volumes/ls/from_imac/opsin/ionized.pdb')
+gens = np.loadtxt('gens.txt')
+assigns = np.load('assigns.npy')
+
 
 try : 
     on_tica = np.load('on_tica.npy')
