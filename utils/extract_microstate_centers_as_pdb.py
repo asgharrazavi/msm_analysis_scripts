@@ -22,7 +22,6 @@ try :
 except: 
     on_tica = on_tica_data()
 
-
 # obtain trajectory id and frame number for each microstate
 trajs, frames = [], []
 for i in range(len(gens)):
@@ -36,7 +35,7 @@ for i in range(len(gens)):
 	mins.append([ss[a],a])
     mins = np.array(mins)
     b = np.argmin(mins[:,0])
-    print i, b, mins[b], gens[i], on_tica[b][mins[b][1]][0:3]
+    print "microstate, frame, min difference, microstate tICA values, extracted frame tICA values:" i, b, mins[b], gens[i], on_tica[b][mins[b][1]][0:3]
     trajs.append(b)
     frames.append(int(mins[b][1]))
 
