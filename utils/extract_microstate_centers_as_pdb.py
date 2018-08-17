@@ -51,8 +51,9 @@ for i in range(1,len(gens)):
     t = md.load('/Volumes/ls/from_imac/opsin/stage%s/ensemble_%d_skip5.xtc' %(stage,traj), top=ref)
     all4.append([i,stage,traj,frames[i]])
     a1 = assigns[trajs[i]][::5]
-    print i, a1.shape, t.xyz.shape
+    print "microstate, assignments.shape, xyz.shape:", i, a1.shape, t.xyz.shape
     t.xyz = t.xyz[frames[i],:,:]
     t.save_pdb('gen_%02d.pdb' %i)
     
 np.savetxt('gen_stage_traj_frame.txt',np.array(all4),fmt='%d')
+
