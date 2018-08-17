@@ -39,7 +39,7 @@ for i in range(len(gens)):
     trajs.append(b)
     frames.append(int(mins[b][1]))
 
-
+# extract frames and save pdb files and log file
 all4 = []
 for i in range(1,len(gens)):
     if trajs[i] < 4: stage = 1 ; traj = trajs[i] 
