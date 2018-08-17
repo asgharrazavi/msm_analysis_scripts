@@ -1,2 +1,2 @@
-## msm_analysis_scripts
+## MSM related analysis_scripts
 Some python utility scripts for extracting information from MSMs (Markov State Models).
