@@ -123,6 +123,7 @@ print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),
 # --------------------------------------------------------------------------------
 
 # --------------------- label macrostates on tICA landscape ----------------------
+# TO DO: add circles to labels
 #print "labeling macrostates..."
 all_s = []
 for i in paths[0]:
