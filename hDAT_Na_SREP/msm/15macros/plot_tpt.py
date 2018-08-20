@@ -137,5 +137,4 @@ for i in range(len(pfold)):
         else: plt.text(xs[i],ys[i],i, fontsize=16)
 # --------------------------------------------------------------------------------
 
-
 plt.savefig('img_tpt_paths.png',dpi=100)
