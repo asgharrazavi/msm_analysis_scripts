@@ -9,6 +9,7 @@
 The tICA parameteres and tICA reaction coordinates are calculated in the `tica_files` folder.
 </br >
 The Markov State Model (MSM) in microstate and macrostate levels are constructed at `msm` folder.
+
 </br >
 The `md_files` folder contain some raw molecular dynamics simulation trajectories and `pdb` and `psf` files to visualize them.
 
