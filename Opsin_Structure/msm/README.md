@@ -6,7 +6,7 @@ step2: cluster all simulation dat based on their tICA values to obtain microstat
 <br />
 step3: use `implied_times2.py` to calculate MSM implied timescales for a series of MSM lag-times.
 <br />  
-step2: choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalues, eigenvectors, transition probability matrix, etc.
+step4: choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalues, eigenvectors, transition probability matrix, etc.
 <br />  
 
 
