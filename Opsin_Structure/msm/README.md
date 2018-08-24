@@ -1,14 +1,14 @@
 # Workflow
 
-Step 1. project all simulation data on tICA reaction coordinates.  
+Step 1. Project all simulation data on tICA reaction coordinates.  
 <br />
-Step 2. cluster all simulation dat based on their tICA values to obtain microstates and assign each frame to a microstate. (assignments are in the `assigns` folder).  
+Step 2. Cluster all simulation dat based on their tICA values to obtain microstates and assign each frame to a microstate. (assignments are in the `assigns` folder).  
 <br />
-Step 3. use `implied_times2.py` to calculate MSM implied timescales for a series of MSM lag-times. 
+Step 3. Use `implied_times2.py` to calculate MSM implied timescales for a series of MSM lag-times. 
 <br />  
-Step 4. choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalues, eigenvectors, transition probability matrix, etc.
+Step 4. Choose a proper MSM lag-time and use `opsin_msm.py` to get MSM eigenvalues, eigenvectors, transition probability matrix, etc.
 <br />  
-Step 5. lump microstates to creat `macrostates` using the `pccaplus.py` in the `12macros` folder. 
+Step 5. Lump microstates to creat `macrostates` using the `pccaplus.py` in the `12macros` folder. 
 <br />  
 
 
