@@ -2,6 +2,7 @@
 step1: project all simulation data on tICA reaction coordinates.
 <br />
 step2: cluster all simulation dat based on their tICA values to obtain microstates and assign each frame to a microstate.  
+(assignments are in the `assigns` folder)
 <br />
 step3: use `implied_times2.py` to calculate MSM implied timescales for a series of MSM lag-times.
 <br />  
