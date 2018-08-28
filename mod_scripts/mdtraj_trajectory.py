@@ -1388,6 +1388,7 @@ class Trajectory(object):
                     time=self.time,
                     box=in_units_of(self.unitcell_vectors, Trajectory._distance_unit, f.distance_unit))
 
+#-------------------------------------------------------------------------------------------------------------------------
     def save_xtc_(self, filename, force_overwrite=True):							#ASGHAR
  	n_frames = self.xyz.shape[0]										#ASGHAR
 	self.time = self.time[0:n_frames]									#ASGHAR	
@@ -1396,6 +1397,7 @@ class Trajectory(object):
             f.write(xyz=in_units_of(self.xyz, Trajectory._distance_unit, f.distance_unit),			#ASGHAR
                     time=self.time,										#ASGHAR
                     box=in_units_of(self.unitcell_vectors, Trajectory._distance_unit, f.distance_unit))		#ASGHAR
+#-------------------------------------------------------------------------------------------------------------------------
 
 
     def save_xtc2(self, filename, force_overwrite=True):                                #ASGHAR
