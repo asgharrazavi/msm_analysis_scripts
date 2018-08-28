@@ -1401,7 +1401,7 @@ class Trajectory(object):
 
 
 #-------------------------------------------------------------------------------------------------------------------------
-    def save_xtc2(self, filename, force_overwrite=True):                                #ASGHAR
+    def save_xtc2(self, filename, force_overwrite=True):   			                                #ASGHAR
         #print(self.time)
         #print(self.unitcell_vectors)
         #self.time = self.time[0:self.xyz.shape[0]]
