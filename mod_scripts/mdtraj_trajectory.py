@@ -1403,7 +1403,8 @@ class Trajectory(object):
 #-------------------------------------------------------------------------------------------------------------------------
 # This function will write xtc format without checking extra stuff like timesteps, unit cell vector size
 # This is useful when the only thing that you care is the coordinates
-# If you load a trajectory, t, and then modify its xyz coordinates, i.e. change t.xyz   
+# If you load a trajectory, t, and then modify its xyz coordinates, i.e. change t.xyz, the original save_xtc function
+# will not work, but this function will still save the coordinates   
     def save_xtc2(self, filename, force_overwrite=True):   			                                #ASGHAR
         #print(self.time)
         #print(self.unitcell_vectors)
