@@ -1406,13 +1406,13 @@ class Trajectory(object):
 # If you load a trajectory, t, and then modify its xyz coordinates, i.e. change t.xyz, the original save_xtc function
 # will not work, but this function will still save the coordinates   
     def save_xtc2(self, filename, force_overwrite=True):   			                                #ASGHAR
-        #print(self.time)
-        #print(self.unitcell_vectors)
-        #self.time = self.time[0:self.xyz.shape[0]]
+        #print(self.time)											#ASGHAR
+        #print(self.unitcell_vectors)										#ASGHAR
+        #self.time = self.time[0:self.xyz.shape[0]]								#ASGHAR
         unitcell_vectors2 = np.zeros((self.xyz.shape[0],3,3))
         self.time = range(0,self.xyz.shape[0])
-        #print("self.unitcell_vectors.shape: " , self.unitcell_vectors.shape)
-        #self.unitcell_vectors = self.unitcell_vectors[0:self.xyz.shape[0]]
+        #print("self.unitcell_vectors.shape: " , self.unitcell_vectors.shape)					#ASGHAR
+        #self.unitcell_vectors = self.unitcell_vectors[0:self.xyz.shape[0]]					#ASGHAR
         self.unitcell_vectors = unitcell_vectors2
         with XTCTrajectoryFile(filename, 'w', force_overwrite=force_overwrite) as f:
             f.write(xyz=in_units_of(self.xyz, Trajectory._distance_unit, f.distance_unit),
