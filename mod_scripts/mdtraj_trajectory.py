@@ -1400,6 +1400,7 @@ class Trajectory(object):
 #-------------------------------------------------------------------------------------------------------------------------
 
 
+#-------------------------------------------------------------------------------------------------------------------------
     def save_xtc2(self, filename, force_overwrite=True):                                #ASGHAR
         #print(self.time)
         #print(self.unitcell_vectors)
@@ -1413,6 +1414,7 @@ class Trajectory(object):
             f.write(xyz=in_units_of(self.xyz, Trajectory._distance_unit, f.distance_unit),
                     time=self.time,
                     box=in_units_of(self.unitcell_vectors, Trajectory._distance_unit, f.distance_unit))
+#-------------------------------------------------------------------------------------------------------------------------
 
 
 
