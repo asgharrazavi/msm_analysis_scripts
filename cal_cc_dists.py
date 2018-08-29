@@ -53,9 +53,11 @@ def save_dists(outname,traj_path,ref):
     _save(outname,sap5,sap5,s55)
  
 
+# load inputs
 ref_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/ionized.pdb'
 ref = md.load(ref_path)
 
+# parse atoms
 arg = ref.top.select('protein and resname ARG and name CZ')
 lys = ref.top.select('protein and resname LYS and name NZ')
 asp = ref.top.select('protein and resname ASP and name CG')
@@ -63,8 +65,7 @@ glu = ref.top.select('protein and resname GLU and name CD')
 sap4 = ref.top.select('segname SAP4 and name P')
 sap5 = ref.top.select('segname SAP5 and name P')
 
-
-for i in range(42,43):
+for i in range(50):
     print "working on trajectory:\t", i
     traj_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/1to781_skip20/traj%d_whole_1to781_skip20.xtc'  %i
     save_dists('traj%d_cc_t.h5' %i,traj_path,ref)
