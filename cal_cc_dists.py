@@ -20,7 +20,6 @@ def _save(outname,amin1,amin2,data):
      for i in range(len(pairs2)):
 	print '\t\t', '%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1]))
 	hf.create_dataset('%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1])), data=np.float16(data[:,i]))
-#	io.saveh2(outname,'%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1])),np.float16(data[:,i]))
 
 def save_dists(outname,traj_path,ref):
     traj = md.load(traj_path,top=ref)
