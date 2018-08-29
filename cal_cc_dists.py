@@ -57,7 +57,7 @@ def save_dists(outname,traj_path,ref):
 ref_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/ionized.pdb'
 ref = md.load(ref_path)
 
-# parse charged aamino acids toms
+# parse charged amino acids
 arg = ref.top.select('protein and resname ARG and name CZ')
 lys = ref.top.select('protein and resname LYS and name NZ')
 asp = ref.top.select('protein and resname ASP and name CG')
@@ -65,7 +65,7 @@ glu = ref.top.select('protein and resname GLU and name CD')
 sap4 = ref.top.select('segname SAP4 and name P')
 sap5 = ref.top.select('segname SAP5 and name P')
 
-# calculate charged-charged residue distances
+# calculate charged-charged amino acid distances
 for i in range(50):
     print "working on trajectory:\t", i
     traj_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/1to781_skip20/traj%d_whole_1to781_skip20.xtc'  %i
