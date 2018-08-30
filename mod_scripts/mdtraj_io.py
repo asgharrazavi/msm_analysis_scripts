@@ -118,6 +118,9 @@ except Exception:  #type?
 # ================= ASGHAR: similar to the saveh function but with added ability to supply keywards for each array ============================
 def saveh2(file, keys2, *args, **kwargs):
     """
+    Additional Parameters
+    ----------
+    keys2 : int, None
     keys2: a keyword to save the array "val"
     """
     if isinstance(file, basestring):
