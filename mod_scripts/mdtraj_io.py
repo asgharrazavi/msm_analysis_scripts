@@ -121,7 +121,7 @@ def saveh2(file, keys2, *args, **kwargs):
     Additional Parameters
     ----------
     keys2 : str
-    a keyword to save the array "val"
+        A keyword to save the array `val` in `args`.
     """
     if isinstance(file, basestring):
         if TABLES2:
