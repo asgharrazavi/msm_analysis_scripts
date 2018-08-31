@@ -10,9 +10,11 @@ rcParams.update({'font.size': 20})
 from tqdm import tqdm
 import matplotlib.cm as cm
 
+# load a and y axis data for tICA landscape
 ev0 = io.loadh('ev0.h5')['arr_0']
 ev1 = io.loadh('ev1.h5')['arr_0']
 
+# load tICA projection data and map it on the tICA landscape
 plt.figure(figsize=(15,5))
 ii = 1
 for i in tqdm(['A','B','C']):
