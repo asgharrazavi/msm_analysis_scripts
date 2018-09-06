@@ -19,9 +19,8 @@ ev1 = io.loadh('ev1.h5')['arr_0']
 
 n_trajs = 3
 plt.figure(figsize=(15,5))
-ii = 1
 for i in tqdm(range(n_trajs)):
-    plt.subplot(1,3,ii)
+    plt.subplot(1,3,i+1)
     d = io.loadh('on_tica_l20_%s.h5'%i)['arr_0'][:,0:2]
     plt.hist2d(ev0,ev1,bins=300,norm=LogNorm(),alpha=0.6)
     # using strides to avoid plotting every frame
@@ -31,7 +30,6 @@ for i in tqdm(range(n_trajs)):
     plt.title(i)
     plt.xticks([])   
     plt.yticks([])   
-    ii += 1
 
 plt.savefig('trajs_on_tica.png')
 plt.show()
