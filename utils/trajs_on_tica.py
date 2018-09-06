@@ -10,10 +10,9 @@ rcParams.update({'font.size': 20})
 from tqdm import tqdm
 import matplotlib.cm as cm
 
+# load 
 ev0 = io.loadh('ev0.h5')['arr_0']
 ev1 = io.loadh('ev1.h5')['arr_0']
-#ev2 = io.loadh('ev2.h5')['arr_0']
-#plt.hist2d(ev0,ev1,bins=500,norm=LogNorm(),alpha=0.6)
 
 plt.figure(figsize=(15,5))
 ii = 1
