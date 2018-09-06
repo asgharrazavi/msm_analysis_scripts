@@ -15,7 +15,7 @@ ev0 = io.loadh('ev0.h5')['arr_0']
 ev1 = io.loadh('ev1.h5')['arr_0']
 
 # plot each trajectory on tICA landscape 
-# time moves from blue to red with dark blue representing begining of trajectory and dark red end 
+# time moves from blue to red with dark blue representing beginning of trajectory and dark red end of trajectory. 
 plt.figure(figsize=(15,5))
 ii = 1
 for i in tqdm(['A','B','C']):
