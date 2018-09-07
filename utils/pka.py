@@ -34,23 +34,12 @@ def get_pka(pka_file,residue):
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs)
 for i in range(n_trajs):
-    #get_pka('%d-ns.pka' %(i+1),'ASP 804')
-    #d804.extend(np.loadtxt('temp'))
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
-    #get_pka('%d-ns.pka' %(i+1),'ASP 808')
-    #d808.extend(np.loadtxt('temp'))
     d808[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 808'))
-    #get_pka('%d-ns.pka' %(i+1),'ASP 926')
-    #d926.extend(np.loadtxt('temp'))
     d926[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 926'))
-    #get_pka('%d-ns.pka' %(i+1),'GLU 327')
-    #e327.extend(np.loadtxt('temp'))
     e327[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 327'))
-    #get_pka('%d-ns.pka' %(i+1),'GLU 779')
-    #e779.extend(np.loadtxt('temp'))
     e779[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 779'))
 
-#print d804
 d804, d808, d926, e327, e779 = np.array(d804), np.array(d808), np.array(d926), np.array(e327), np.array(e779)
 np.savetxt('d804.txt',np.array(d804))
 np.savetxt('d808.txt',np.array(d808))
@@ -68,8 +57,7 @@ plt.xlim([-1,5])
 plt.xlabel('Residue',fontsize=18)
 plt.ylabel('Average pKa in %d frames' %n_trajs,fontsize=14)
 plt.yticks(fontsize=18)
-#plt.title('3KDP')
+plt.title('3KDP')
 plt.savefig('pka.pdf')
-#plt.show()
 
 
