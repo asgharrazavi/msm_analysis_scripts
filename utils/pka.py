@@ -23,7 +23,7 @@ for i in range(0,n_frames,5):
     os.system('propka31 %d-ns.pdb -i "A:327,A:779,A:804,A:808,A:926,A:954" ' %(i+1))
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
-# extract pKa values for some important residues as plot them
+# extract pKa values for some important residues
 d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
 for i in range(n_frames):
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
@@ -39,6 +39,7 @@ np.savetxt('d926.txt',np.array(d926))
 np.savetxt('e327.txt',np.array(e327))
 np.savetxt('e779.txt',np.array(e779))
 
+# plot pKa values for selected residues
 d804, d808, d926, e327, e779 = d804[d804 > 1], d808[d808 > 1], d926[d926 > 1], e327[e327 > 1], e779[e779 > 1]
 
 means = [np.mean(d804), np.mean(d808), np.mean(d926), np.mean(e327), np.mean(e779)]
