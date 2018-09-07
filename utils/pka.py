@@ -14,11 +14,12 @@ def get_pka(pka_file,residue):
     except: return 0.0
 
 
+# load trajectory
 t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
 n_frames = t.xyz.shape[0]
 xyz = t.xyz
 
-
+# calculate pKa values for every 5 frame
 for i in range(0,n_frames,5):
     print i
     t.xyz = xyz[i]
