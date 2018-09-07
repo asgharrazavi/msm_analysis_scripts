@@ -32,6 +32,7 @@ for i in range(n_frames):
     e327[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 327'))
     e779[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 779'))
 
+# save pKa values for selected residues
 d804, d808, d926, e327, e779 = np.array(d804), np.array(d808), np.array(d926), np.array(e327), np.array(e779)
 np.savetxt('d804.txt',np.array(d804))
 np.savetxt('d808.txt',np.array(d808))
