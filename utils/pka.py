@@ -9,7 +9,6 @@ def get_pka(pka_file,residue):
     try: return float(pka)    
     except: return 0.0
 
-
 # load trajectory
 t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
 n_frames = t.xyz.shape[0]
@@ -25,6 +24,7 @@ for i in range(0,n_frames,5):
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
 
+# extract pKa values for some important residues as plot them
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
 for i in range(n_frames):
