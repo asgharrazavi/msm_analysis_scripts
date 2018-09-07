@@ -3,6 +3,16 @@ import mdtraj as md
 import numpy as np
 import matplotlib.pyplot as plt
 
+def get_pka2(pka_file,residue):
+    os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{print $4}' > temp2''' %(pka_file,residue))
+    os.system('''sed 's/\*/ /g'  temp2 > temp''')
+
+def get_pka(pka_file,residue):
+    pka = commands.getoutput(''' tail -n 420 %s  | head -n 380 | grep "%s"  | awk '{print $4}' ''' %(pka_file,residue))
+    pka = commands.getoutput(''' cat %s  | grep "  %s"  | awk '{print $4}' ''' %(pka_file,residue))
+    try: return float(pka)    
+    except: return 0.0
+
 t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
 n_trajs = t.xyz.shape[0]
 xyz = t.xyz
@@ -18,18 +28,6 @@ if (1):
     os.system('propka31 %d-ns.pdb -i "A:327,A:779,A:804,A:808,A:926,A:954" ' %(i+1))
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
-def get_pka2(pka_file,residue):
-    #os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{printf"%1.2f\n",$4}' > temp''' %(pka_file,residue))
-    os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{print $4}' > temp2''' %(pka_file,residue))
-    os.system('''sed 's/\*/ /g'  temp2 > temp''')
-
-def get_pka(pka_file,residue):
-    pka = commands.getoutput(''' tail -n 420 %s  | head -n 380 | grep "%s"  | awk '{print $4}' ''' %(pka_file,residue))
-    pka = commands.getoutput(''' cat %s  | grep "  %s"  | awk '{print $4}' ''' %(pka_file,residue))
-    try:
-        return float(pka)    
-    except:
-	return 0.0
 
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs)
