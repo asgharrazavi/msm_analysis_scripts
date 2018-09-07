@@ -3,10 +3,6 @@ import mdtraj as md
 import numpy as np
 import matplotlib.pyplot as plt
 
-def get_pka2(pka_file,residue):
-    os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{print $4}' > temp2''' %(pka_file,residue))
-    os.system('''sed 's/\*/ /g'  temp2 > temp''')
-
 def get_pka(pka_file,residue):
     pka = commands.getoutput(''' tail -n 420 %s  | head -n 380 | grep "%s"  | awk '{print $4}' ''' %(pka_file,residue))
     pka = commands.getoutput(''' cat %s  | grep "  %s"  | awk '{print $4}' ''' %(pka_file,residue))
