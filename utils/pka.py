@@ -51,6 +51,6 @@ plt.xlabel('Residue',fontsize=18)
 plt.ylabel('Average pKa in %d frames' %n_frames,fontsize=14)
 plt.yticks(fontsize=18)
 plt.title('3KDP')
-plt.savefig('pka.pdf')
+plt.savefig('pka.png')
 
 
