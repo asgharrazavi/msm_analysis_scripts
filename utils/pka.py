@@ -10,7 +10,7 @@ def get_pka(pka_file,residue):
     except: return 0.0
 
 # load trajectory
-t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
+t = md.load_dcd('prot-ion-coor-all.dcd',top='prot-ion.pdb')
 n_frames = t.xyz.shape[0]
 xyz = t.xyz
 
