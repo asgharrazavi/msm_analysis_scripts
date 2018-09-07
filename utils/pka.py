@@ -13,14 +13,13 @@ def get_pka(pka_file,residue):
     try: return float(pka)    
     except: return 0.0
 
+
 t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
-n_trajs = t.xyz.shape[0]
+n_frames = t.xyz.shape[0]
 xyz = t.xyz
 
-print "n_trajs:\t" , n_trajs
 
-if (1):
- for i in range(0,n_trajs,5):
+for i in range(0,n_frames,5):
     print i
     t.xyz = xyz[i]
     t.save_pdb('a')
@@ -30,8 +29,8 @@ if (1):
 
 
 d804, d808, d926, e327, e779 = [], [], [], [], []
-d804, d808, d926, e327, e779 = np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs)
-for i in range(n_trajs):
+d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
+for i in range(n_frames):
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
     d808[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 808'))
     d926[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 926'))
@@ -53,7 +52,7 @@ plt.errorbar(range(5),means,yerr=stds,fmt='o')
 plt.xticks(range(5),['D804','D808','D926','E327','E779'],fontsize=18)
 plt.xlim([-1,5])
 plt.xlabel('Residue',fontsize=18)
-plt.ylabel('Average pKa in %d frames' %n_trajs,fontsize=14)
+plt.ylabel('Average pKa in %d frames' %n_frames,fontsize=14)
 plt.yticks(fontsize=18)
 plt.title('3KDP')
 plt.savefig('pka.pdf')
