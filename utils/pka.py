@@ -23,7 +23,6 @@ for i in range(0,n_frames,5):
     os.system('propka31 %d-ns.pdb -i "A:327,A:779,A:804,A:808,A:926,A:954" ' %(i+1))
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
-
 # extract pKa values for some important residues as plot them
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
