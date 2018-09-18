@@ -10,13 +10,10 @@ cluster = KMeans(n_clusters=100,n_jobs=-1,verbose=0, max_iter=100, tol=0.0001,)
 dataset = []
 for i in range(50):
     a = io.loadh('./on_tica_l16ns_%d.h5' %i)['arr_0']
-    print a.shape
     inds = [0,1]
     a = a[:,inds]
     dataset.append(a)
-    print a.shape
 
 cluster.fit(dataset)
-print np.array(cluster.labels_).shape
 np.save('assigns.npy',cluster.labels_)
 np.savetxt('gens.txt',np.array(cluster.cluster_centers_))
