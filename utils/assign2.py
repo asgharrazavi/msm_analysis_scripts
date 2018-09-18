@@ -17,6 +17,9 @@ inds = [0,1]
 dataset = []
 for i in range(len(on_tica)): dataset.append(on_tica[:,inds])
 
+# cluster
 cluster.fit(dataset)
+
+# save assignments and microstate centers
 np.save('assigns.npy',cluster.labels_)
 np.savetxt('gens.txt',np.array(cluster.cluster_centers_))
