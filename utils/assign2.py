@@ -4,15 +4,17 @@ from msmbuilder.cluster import KMeans, KCenters
 import mdtraj.io as io
 
 
+# clusterin object
 cluster = KMeans(n_clusters=100,n_jobs=-1,verbose=0, max_iter=100, tol=0.0001,)
 
+# load projected on tICA data
+on_tica = np.load('on_tica.npy')
 
+# which tICA projections be used for clusterin
+inds = [0,1]
 dataset = []
-for i in range(50):
-    a = io.loadh('./on_tica_l16ns_%d.h5' %i)['arr_0']
-    inds = [0,1]
-    a = a[:,inds]
-    dataset.append(a)
+for i in range(len(on_tica)):
+    dataset.append(on_tica[:,inds])
 
 cluster.fit(dataset)
 np.save('assigns.npy',cluster.labels_)
