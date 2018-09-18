@@ -12,7 +12,6 @@ for i in range(50):
     a = io.loadh('./on_tica_l16ns_%d.h5' %i)['arr_0']
     print a.shape
     inds = [0,1]
-#    a = a[:,0:2]
     a = a[:,inds]
     dataset.append(a)
     print a.shape
