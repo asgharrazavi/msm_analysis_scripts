@@ -18,7 +18,6 @@ for i in range(50):
 
 cluster.fit(dataset)
 print np.array(cluster.labels_).shape
-for i in range(50):
     np.savetxt('assigns_%d_skip20.txt' %i,np.array(cluster.labels_[i]),fmt='%d')
 np.savetxt('gens_all_skip20.txt',np.array(cluster.cluster_centers_))
 #np.savetxt('gens_id2.txt',np.array(cluster.cluster_ids_))
