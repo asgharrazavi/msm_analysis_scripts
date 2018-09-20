@@ -67,7 +67,6 @@ glu = ref.top.select('protein and resname GLU and name CD')
 sap4 = ref.top.select('segname SAP4 and name P')
 sap5 = ref.top.select('segname SAP5 and name P')
 
-
 # load trajectories
 for i in range(50):
     print "working on trajectory:\t", i
