@@ -20,7 +20,6 @@ def _save(outname,amin1,amin2,data):
      for i in range(len(pairs2)):
 	print '\t\t', '%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1]))
 	hf.create_dataset('%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1])), data=np.float16(data[:,i]))
-#	io.saveh2(outname,'%s--%s' %(ref.top.atom(pairs2[i][0]),ref.top.atom(pairs2[i][1])),np.float16(data[:,i]))
 
 def save_dists(outname,traj_path,ref):
     traj = md.load(traj_path,top=ref)
@@ -54,13 +53,17 @@ def save_dists(outname,traj_path,ref):
     _save(outname,sap5,sap5,s55)
  
 
+# load reference pdb
 ref_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/ionized.pdb'
 ref = md.load(ref_path)
 
+# parse all charged residues
 arg = ref.top.select('protein and resname ARG and name CZ')
 lys = ref.top.select('protein and resname LYS and name NZ')
 asp = ref.top.select('protein and resname ASP and name CG')
 glu = ref.top.select('protein and resname GLU and name CD')
+
+# parse charged lipid molecules
 sap4 = ref.top.select('segname SAP4 and name P')
 sap5 = ref.top.select('segname SAP5 and name P')
 
