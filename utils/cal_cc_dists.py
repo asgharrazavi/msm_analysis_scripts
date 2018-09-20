@@ -69,7 +69,7 @@ sap5 = ref.top.select('segname SAP5 and name P')
 
 # load trajectories, calculates charged residue distances and save as hdf5 format
 # each key in the hdf5 files is saved with this format: ARG61-CZ--ASP436-CG
-# note that the hirarecy of keys is like this: 
+# note that the hierarchy of keys is like this: ARG > LYS > ASP > GLU > SAP4 > SAP5 
 for i in range(50):
     print "working on trajectory:\t", i
     traj_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/1to781_skip20/traj%d_whole_1to781_skip20.xtc'  %i
