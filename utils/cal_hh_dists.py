@@ -1,6 +1,7 @@
 """
-Script for calculating hydrophobic-hydrophobic interactions
+Script for calculating hydrophobic-hydrophobic interactions in MD simulations
 """
+
 import numpy as np
 import mdtraj as md
 import mdtraj.io as io
@@ -45,7 +46,7 @@ def save_dists(outname,traj_path,ref):
     r8 = dists(t,r,pairs(gly,gly))   
     _save(outname,gly,gly,r8)
  
-
+# load refrence pdb
 ref_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/ionized.pdb'
 ref = md.load(ref_path)
 
