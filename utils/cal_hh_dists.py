@@ -50,6 +50,7 @@ def save_dists(outname,traj_path,ref):
 ref_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/ionized.pdb'
 ref = md.load(ref_path)
 
+# parse hydrophobic residues
 ala = ref.top.select('protein and resname ALA and name CB')
 ile = ref.top.select('protein and resname ILE and name CD1')
 leu = ref.top.select('protein and resname LEU and name CG')
@@ -60,6 +61,7 @@ tyr = ref.top.select('protein and resname TYR and name CZ')
 val = ref.top.select('protein and resname VAL and name CB')
 pro = ref.top.select('protein and resname PRO and name CG')
 gly = ref.top.select('protein and resname GLY and name CA')
+
 
 for i in range(50):
     print "working on trajectory:\t", i
