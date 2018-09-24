@@ -1,3 +1,6 @@
+"""
+Script for calculating hydrophobic-hydrophobic interactions
+"""
 import numpy as np
 import mdtraj as md
 import mdtraj.io as io
