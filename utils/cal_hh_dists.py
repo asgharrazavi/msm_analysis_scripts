@@ -62,6 +62,7 @@ val = ref.top.select('protein and resname VAL and name CB')
 pro = ref.top.select('protein and resname PRO and name CG')
 gly = ref.top.select('protein and resname GLY and name CA')
 
+
 # calculate hydrophobic-hydrophobic distances in trajectories
 for i in range(50):
     print "working on trajectory:\t", i
