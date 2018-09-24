@@ -62,7 +62,7 @@ val = ref.top.select('protein and resname VAL and name CB')
 pro = ref.top.select('protein and resname PRO and name CG')
 gly = ref.top.select('protein and resname GLY and name CA')
 
-
+# calculate hydrophobic-hydrophobic distances in trajectories
 for i in range(50):
     print "working on trajectory:\t", i
     traj_path = '/Users/asr2031/Desktop/transfer/dDAT_WT_ensemble_stampede/1to1025_skip20/traj%d_whole_1to1025_skip20.xtc'  %i
