@@ -4,7 +4,6 @@ Script for calculating polar-polar interactions in MD simulations
 
 import numpy as np
 import mdtraj as md
-import mdtraj.io as io
 import h5py
 
 def pairs(amin1,amin2):
