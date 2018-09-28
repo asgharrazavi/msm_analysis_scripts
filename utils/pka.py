@@ -61,4 +61,3 @@ plt.yticks(fontsize=18)
 plt.title('3KDP')
 plt.savefig('pka.pdf')
 
-
