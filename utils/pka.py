@@ -19,7 +19,6 @@ if (1):
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
 def get_pka2(pka_file,residue):
-    #os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{printf"%1.2f\n",$4}' > temp''' %(pka_file,residue))
     os.system('''cat %s | awk '{print $1,$2,$3,$4}' | grep "%s" | awk '{print $4}' > temp2''' %(pka_file,residue))
     os.system('''sed 's/\*/ /g'  temp2 > temp''')
 
@@ -34,20 +33,10 @@ def get_pka(pka_file,residue):
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs)
 for i in range(n_trajs):
-    #get_pka('%d-ns.pka' %(i+1),'ASP 804')
-    #d804.extend(np.loadtxt('temp'))
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
-    #get_pka('%d-ns.pka' %(i+1),'ASP 808')
-    #d808.extend(np.loadtxt('temp'))
     d808[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 808'))
-    #get_pka('%d-ns.pka' %(i+1),'ASP 926')
-    #d926.extend(np.loadtxt('temp'))
     d926[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 926'))
-    #get_pka('%d-ns.pka' %(i+1),'GLU 327')
-    #e327.extend(np.loadtxt('temp'))
     e327[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 327'))
-    #get_pka('%d-ns.pka' %(i+1),'GLU 779')
-    #e779.extend(np.loadtxt('temp'))
     e779[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 779'))
 
 #print d804
