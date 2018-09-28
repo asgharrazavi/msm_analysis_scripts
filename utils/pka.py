@@ -3,11 +3,6 @@ import mdtraj as md
 import numpy as np
 import matplotlib.pyplot as plt
 
-t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
-n_trajs = t.xyz.shape[0]
-xyz = t.xyz
-
-print "n_trajs:\t" , n_trajs
 
 if (1):
  for i in range(0,n_trajs,5):
@@ -29,6 +24,12 @@ def get_pka(pka_file,residue):
         return float(pka)    
     except:
 	return 0.0
+
+t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
+n_trajs = t.xyz.shape[0]
+xyz = t.xyz
+
+print "n_trajs:\t" , n_trajs
 
 d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs), np.zeros(n_trajs)
