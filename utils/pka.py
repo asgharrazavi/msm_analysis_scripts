@@ -50,7 +50,6 @@ d804, d808, d926 = d804[d804 > 1], d808[d808 > 1], d926[d926 > 1]
 e327, e779 = e327[e327 > 1], e779[e779 > 1]
 means = [np.mean(d804), np.mean(d808), np.mean(d926), np.mean(e327), np.mean(e779)]
 stds = [np.std(d804), np.std(d808), np.std(d926), np.std(e327), np.std(e779)]
-
 plt.errorbar(range(5),means,yerr=stds,fmt='o')
 plt.xticks(range(5),['D804','D808','D926','E327','E779'],fontsize=18)
 plt.xlim([-1,5])
