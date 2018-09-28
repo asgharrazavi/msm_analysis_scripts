@@ -1,5 +1,6 @@
 """
 A sample scriot for calculating pKa values using PROPKA
+most of this script needs to be adjusted 
 """
 
 import os,sys,commands
