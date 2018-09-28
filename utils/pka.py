@@ -22,16 +22,13 @@ n_frames = t.xyz.shape[0]
 xyz = t.xyz
 print "n_frames:\t" , n_frames
 
-if (1):
- for i in range(0,n_frames,5):
-    print i
+for i in range(0,n_frames,5):
     t.xyz = xyz[i]
     t.save_pdb('a')
     os.system('sed "3d" a > %d-ns.pdb' %(i+1))
     os.system('propka31 %d-ns.pdb -i "A:327,A:779,A:804,A:808,A:926,A:954" ' %(i+1))
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
-d804, d808, d926, e327, e779 = [], [], [], [], []
 d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
 for i in range(n_frames):
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
