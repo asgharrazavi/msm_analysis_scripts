@@ -22,6 +22,7 @@ n_frames = t.xyz.shape[0]
 xyz = t.xyz
 print "n_frames:\t" , n_frames
 
+# calculate pKa for some frames
 for i in range(0,n_frames,5):
     t.xyz = xyz[i]
     t.save_pdb('a')
@@ -29,6 +30,7 @@ for i in range(0,n_frames,5):
     os.system('propka31 %d-ns.pdb -i "A:327,A:779,A:804,A:808,A:926,A:954" ' %(i+1))
     os.system('rm a %d-ns.pdb *propka_input' %(i+1))
 
+# load pKa values for interested residues
 d804, d808, d926, e327, e779 = np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames), np.zeros(n_frames)
 for i in range(n_frames):
     d804[i] = (get_pka('%d-ns.pka' %(i+1),'ASP 804'))
@@ -37,7 +39,6 @@ for i in range(n_frames):
     e327[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 327'))
     e779[i] = (get_pka('%d-ns.pka' %(i+1),'GLU 779'))
 
-#print d804
 d804, d808, d926, e327, e779 = np.array(d804), np.array(d808), np.array(d926), np.array(e327), np.array(e779)
 np.savetxt('d804.txt',np.array(d804))
 np.savetxt('d808.txt',np.array(d808))
