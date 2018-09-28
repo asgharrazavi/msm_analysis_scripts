@@ -1,3 +1,7 @@
+"""
+A sample scriot for calculating pKa values using PROPKA
+"""
+
 import os,sys,commands
 import mdtraj as md
 import numpy as np
