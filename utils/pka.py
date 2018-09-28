@@ -1,7 +1,7 @@
 """
 A sample scriot for calculating pKa values using PROPKA
 ---------
-NOTE: most of this script needs to be adjusted depending on the system and residues  
+NOTE: most of this script needs to be adjusted depending on the system and residues of interest 
 """
 
 import os,sys,commands
