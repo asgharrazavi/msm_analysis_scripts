@@ -21,7 +21,7 @@ def get_pka(pka_file,residue):
 t = md.load_dcd('../prot-ion-coor-all.dcd',top='../prot-ion.pdb')
 n_frames = t.xyz.shape[0]
 xyz = t.xyz
-print "n_frames:\t" , n_frames
+print "number of frames:\t" , n_frames
 
 # calculate pKa for some frames
 for i in range(0,n_frames,5):
