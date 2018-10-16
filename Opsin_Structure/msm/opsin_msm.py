@@ -43,7 +43,8 @@ def plot_evs():
         ax = plt.Subplot(fig, inner_grid[0])
         www = ax.plot(msm.left_eigenvectors_[:,i],'.-',linewidth=2)
 	if i != 0:
-	    plt.text(30,0.03,'%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3),\		# snapshots saved every 80 ps
+	    # snapshots saved every 80 ps
+	    plt.text(30,0.03,'%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3),\	
                     color='k',fontsize=20,bbox=dict(facecolor='w', edgecolor='k',boxstyle='round'), horizontalalignment='center')
 	    print i, "msm timescale:", '%3.2f (ns)' %(msm.timescales_[i-1]*80./1E3)
         ind1 = (msm.left_eigenvectors_[:,i] < 0)
