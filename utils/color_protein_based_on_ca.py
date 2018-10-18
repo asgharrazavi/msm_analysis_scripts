@@ -4,7 +4,7 @@ import mdtraj as md
 ca = np.loadtxt('chol_prot_popc.txt')
 
 ref = md.load('protein_no_chol_beta_occ.pdb')
-print "n atoms:",ref.top.n_atoms
+print "number of atoms:", ref.top.n_atoms
 
 s = []
 for i in range(ref.n_residues):
@@ -12,6 +12,8 @@ for i in range(ref.n_residues):
     for j in range(r.n_atoms):
 	s.append(ca[i])
 
-print "n data:", len(s)
+print "number of data points:", len(s)
+# len(s) should match ref.top.n_atoms
+
 np.savetxt('tmp.txt',s,fmt='%1.2f')
 
