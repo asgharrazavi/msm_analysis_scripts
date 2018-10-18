@@ -14,6 +14,6 @@ for i in range(ref.n_residues):
 	s.append(ca[i])
 
 print "number of data points:", len(s)
-# len(s) should match ref.top.n_atoms
+# NOTE: len(s) should match ref.top.n_atoms
 
 np.savetxt('tmp.txt',s,fmt='%1.2f')
