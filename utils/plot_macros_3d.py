@@ -23,12 +23,6 @@ fig = plt.figure(figsize=(15,10))
 ax = fig.add_subplot(111, projection='3d')
 n_macros = int(np.max(map15) + 1)
 
-if 0:
- for i in range(n_macros):
-    c = cm.Paired(i/float(n_macros),1)
-    ind = [map15 == i]
-    ax.scatter(gens[:,0][ind], gens[:,1][ind], gens[:,2][ind], c=tableau20[i] ,marker='.')
- plt.legend(range(n_macros),ncol=8,labelspacing=0.2,numpoints=1,handletextpad=0.01,handlelength=1.5,columnspacing=0.2,shadow=True,fancybox=True,fontsize=16,bbox_to_anchor=(0.85,1.1))
 
 def plot(n_trajs,name,start):
     for j in range(n_trajs):
