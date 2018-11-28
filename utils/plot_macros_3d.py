@@ -55,7 +55,8 @@ ax.set_xlabel('tIC 1')
 ax.set_ylabel('tIC 2')
 ax.set_zlabel('tIC 3')
 
-#plt.savefig('land_macro_10_3d_2.png')
+plt.savefig('img_macros_3d.png')
+
 # rotate the axes and update
 for angle in range(0, 360):
     ax.view_init(30, angle)
