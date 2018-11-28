@@ -12,10 +12,10 @@ rcParams['axes.linewidth'] = 3
 rcParams.update({'font.size': 16})
 
 map15 = np.loadtxt('map10_pccaplus.dat')
-gens = np.loadtxt('./gens.txt')
-ev0 = io.loadh('../ev0.h5')['arr_0']
-ev1 = io.loadh('../ev1.h5')['arr_0']
-ev2 = io.loadh('../ev2.h5')['arr_0']
+gens = np.loadtxt('gens.txt')
+ev0 = io.loadh('ev0.h5')['arr_0']
+ev1 = io.loadh('ev1.h5')['arr_0']
+ev2 = io.loadh('ev2.h5')['arr_0']
 
 tableau20 = ['r','b','g','gold','c','m','k','linen','silver','chocolate']
 
