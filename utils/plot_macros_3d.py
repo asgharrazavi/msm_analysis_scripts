@@ -28,23 +28,23 @@ def plot(n_trajs,name,start):
     for j in range(n_trajs):
 	print j+start
     	m_assigns = np.loadtxt('macro10_assigns_%d.txt' %(j+start),dtype=int)
-    	on_tica = io.loadh('../on_tica_l20_%s_%d.h5' %(name,j))['arr_0']
+    	on_tica = io.loadh('on_tica_l20_%s_%d.h5' %(name,j))['arr_0']
     	for i in range(15):
     	    c = cm.Paired(i/15.,1)
 	    if i not in m_assigns: continue
 	    ind = (m_assigns == i)
 	    if i in [8,9]: 
-	        ev0 = on_tica[ind][:,0]#[::200]	
-	        ev1 = on_tica[ind][:,1]#[::200]	
-	        ev2 = on_tica[ind][:,2]#[::200]	
+	        ev0 = on_tica[ind][:,0]	
+	        ev1 = on_tica[ind][:,1]	
+	        ev2 = on_tica[ind][:,2]	
 	    elif i in [0,5]: 
-	        ev0 = on_tica[ind][:,0]#[::100]	
-	        ev1 = on_tica[ind][:,1]#[::100]	
-	        ev2 = on_tica[ind][:,2]#[::100]	
+	        ev0 = on_tica[ind][:,0]	
+	        ev1 = on_tica[ind][:,1]	
+	        ev2 = on_tica[ind][:,2]	
 	    else: 
-	        ev0 = on_tica[ind][:,0]#[::10]
-	        ev1 = on_tica[ind][:,1]#[::10]
-	        ev2 = on_tica[ind][:,2]#[::10]
+	        ev0 = on_tica[ind][:,0]
+	        ev1 = on_tica[ind][:,1]
+	        ev2 = on_tica[ind][:,2]
 	    ax.scatter(ev0,ev1,ev2, c=tableau20[i] ,marker='o',alpha=0.2)
 
 plot(4,'s1',0)
