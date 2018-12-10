@@ -1,7 +1,7 @@
 
 ### Scripts for calculating tICA and MSM in this paper:
 
-###     A Markov State-based Quantitative Kinetic Model of Sodium Release from the Dopamine Transporter
+###     How structural elements evolving from bacterial to human SLC6 transporters enabled new functional properties 
 
 <a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-018-0495-6">https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-018-0495-6</a>
 
