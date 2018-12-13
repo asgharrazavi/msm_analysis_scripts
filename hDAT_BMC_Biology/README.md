@@ -8,7 +8,7 @@
 ------
 
 ### Comments
-   * Simulations: `md_files`  
+   * md_files: `simulation_files`  
    * tICA: `tica_files`  
    * MSM and TPT: `msm`  
 
