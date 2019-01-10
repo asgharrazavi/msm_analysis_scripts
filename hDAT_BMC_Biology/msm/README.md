@@ -6,8 +6,9 @@ Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 
 ## Comments
 **MSM lagtime for WT system: 48 ns**
+**MSM lagtime for no-PIP2 system: 80 ns**
 </br >
-**Number of microstates : 100**
+**Number of microstates for WT system: 100**
 
 </br >
 
