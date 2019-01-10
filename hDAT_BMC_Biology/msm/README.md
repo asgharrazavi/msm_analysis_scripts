@@ -11,7 +11,7 @@ Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 **Number of microstates for WT system: 100**
 **Number of microstates for no-PIP2 system: 100**
 
-
+<!--
 </br >
 
 `assigns_all_skip20.txt` contains assignments for all of the 50 MD trajectories.
@@ -36,4 +36,4 @@ The files `msm_*.dat` are the outputs generated from building an MSM:
 much more dominant than these mathematical uncertainties. 
    * If ergodic trimming is used, the `msm_mapping.dat` shows which microstates are trimmed (i.e., not used in calculating transition probability matrix). 
 In ergodic system it would be possible to visit any microstate from any other microstate.    
-
+>
