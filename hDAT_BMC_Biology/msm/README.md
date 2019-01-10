@@ -5,7 +5,7 @@ Step 1. Obtain the implied timescales plot by using the `implied_times2.py` scri
 Step 2. Pick a Markovian lagtime and use the `hDAT_msm.py` script to build MSM.
 
 ## Comments
-**MSM lagtime : 48 ns**
+**MSM lagtime for WT system: 48 ns**
 </br >
 **Number of microstates : 100**
 
