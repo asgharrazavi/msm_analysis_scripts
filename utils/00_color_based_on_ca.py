@@ -13,6 +13,6 @@ for i in range(ref.n_residues):
     for j in range(r.n_atoms):
 	s.append(ca[i])
 
-print "number of data points:", len(s)
+print "number of data points (must macth number of atoms):", len(s)
 np.savetxt('tmp.txt',s,fmt='%1.2f')
 
