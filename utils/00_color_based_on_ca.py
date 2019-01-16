@@ -4,8 +4,9 @@ import mdtraj as md
 ca = np.loadtxt('chol_prot_popc2.txt')
 
 ref = md.load('protein.pdb')
-print "n atoms:",ref.top.n_atoms
+print "nubmer of atoms:",ref.top.n_atoms
 
+# saving a text file for color values that can be used in visualization
 s = []
 for i in range(ref.n_residues):
     r = ref.top.residue(i)
