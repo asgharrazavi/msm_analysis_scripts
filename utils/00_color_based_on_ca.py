@@ -1,13 +1,9 @@
 import numpy as np
 import mdtraj as md
 
-ca1 = np.loadtxt('chol_prot_popc2.txt')
-ca2 = np.loadtxt('no_chol_prot_popc2.txt')
+ca = np.loadtxt('chol_prot_popc2.txt')
 
-ca = abs(ca2 - ca1) 
-#ca = ca * ca2
-
-ref = md.load('protein_no_chol_beta_occ.pdb')
+ref = md.load('protein.pdb')
 print "n atoms:",ref.top.n_atoms
 
 s = []
