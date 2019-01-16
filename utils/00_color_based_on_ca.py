@@ -1,7 +1,7 @@
 import numpy as np
 import mdtraj as md
 
-ca = np.loadtxt('chol_prot_popc2.txt')
+ca = np.loadtxt('data.txt')
 
 ref = md.load('protein.pdb')
 print "nubmer of atoms:",ref.top.n_atoms
