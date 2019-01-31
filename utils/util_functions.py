@@ -9,7 +9,7 @@ def cal_on_off_time(data):
     
     return:
     ------
-    1D array telling number of unterupted repeats for "1"
+    1D array: number of uninterrupted repeats for "1"
     """
     # source: https://stackoverflow.com/questions/54446907/how-to-calculate-numbers-of-uninterrupted-repeats-in-an-array-in-python?noredirect=1#comment95703294_54446907 
     d = np.diff(np.pad(data, pad_width=1, mode='constant'))
