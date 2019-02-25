@@ -40,12 +40,12 @@ print "len(assigns_all):", len(assigns_all)
 def save_xtc(macro_id,idd):
     xyz, lens = [], 0
     for j in range(len(assigns_all)):
-	assigns = assigns_all[j] # np.loadtxt('macro12_assigns_%d.txt' %j,dtype=int)[::5]		#skip5
+	assigns = assigns_all[j] 
     	ss = np.where(assigns == macro_id)[0]
     	if len(ss) == 0:
 	    continue
     	t = md.load(dictt[j],top=ref)
-  	print "\t\tnumber of frames belonging to macrostate %d:" %macro_id, len(ss) 
+  	print "\t\tnumber of frames from trajextory %d belonging to macrostate %d:" %(j, macro_id), len(ss) 
 
 	# trying not to save every single frame
         if len(ss) > 1000: t.xyz = t.xyz[ss[0:-1:5],:,:]
@@ -64,7 +64,7 @@ def save_xtc(macro_id,idd):
 	start = end
     t = md.load(dictt[0] ,top=ref)
     t.xyz = xyz3
-    print "Final xyz.shape (t.xyz.shape):", t.xyz.shape
+    print "Macrostate %d final xyz.shape (t.xyz.shape):" %macro_id, t.xyz.shape
     t.save_xtc2('gen%d.xtc' %(macro_id))
 
 
