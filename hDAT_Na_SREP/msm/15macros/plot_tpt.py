@@ -9,7 +9,7 @@ from tabulate import tabulate
 
 # ========================================== functions ==========================
 def get_macro_centers(n_macro,map15,gens):
-   print "\tgetting macrostate centers..."
+    print "\tgetting macrostate centers..."
     cents = []
     for i in range(n_macro):
         ind = [map15 == i]
