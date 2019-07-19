@@ -12,7 +12,7 @@ def get_macro_centers(n_macro,map15,gens):
     print "\tgetting macrostate centers..."
     cents = []
     for i in range(n_macro):
-        ind = [map15 == i]
+        ind = (map15 == i)
         cents.append([np.mean(gens[:,0][ind]), np.mean(gens[:,1][ind])])
     return cents
         
@@ -21,14 +21,15 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
     plt.hexbin(ev0, ev1, bins='log', mincnt=1, cmap="Greys")
     fmts = ['ro','bo','go','g<','mo','co','m*','c*','r*','b+','y+','y*','c*','g*','r+','r>','b>','g+']
     for i in range(n_macros):
-        ind = [map15 == i]
+        ind = (map15 == i)
         plt.plot(gens[:,0][ind],gens[:,1][ind],fmts[i])#colors[i])
+	plt.text(np.mean(gens[:,0][ind]),np.mean(gens[:,1][ind]),i,fontsize=16,bbox=dict(facecolor='y', edgecolor='r',boxstyle='circle'), horizontalalignment='center',)
     plt.legend(range(n_macros),ncol=n_macros,labelspacing=0.2,numpoints=1,handletextpad=0.01,handlelength=0.5,columnspacing=0.8,shadow=True,fancybox=True,fontsize=18,bbox_to_anchor=(0.95,1.1))
     for i in range(n_macros):
         ev00, ev11 = [], []
         for j in range(50):
             dd = raw_data[j][0:len(assigns22[j])]
-            ind = [assigns22[j] == i]
+            ind = (assigns22[j] == i)
             ev00.extend(dd[:,0][ind][0:-1:1])
             ev11.extend(dd[:,1][ind][0:-1:1])
         plt.plot(np.array(ev00),np.array(ev11),fmts[i],alpha=0.3,markersize=8)
@@ -39,28 +40,28 @@ def plot_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
 
 # --------------- loading input data ---------------------------------------------
 print "loading input data..."
-n_macro = 15
-on_tica = np.load('../../tica_files/projected_on_tica_16ns_sep_skip20.npy')
-gens = np.loadtxt('../gens_all_skip20.txt')
+n_macro = 10
+on_tica = np.load('../on_tica.npy')
+gens = np.loadtxt('../gens.txt')
 map15 = np.loadtxt('map%d_pccaplus.dat' %n_macro,dtype=int)
-macro_assigns = np.loadtxt('macro15_assigns.txt', dtype=int)
-ev0 = io.loadh('../../tica_files/ev0.h5')['arr_0']
-ev1 = io.loadh('../../tica_files/ev1.h5')['arr_0']
+macro_assigns = np.load('macro10_assigns.npy')
+ev0 = io.loadh('../ev0.h5')['arr_0']
+ev1 = io.loadh('../ev1.h5')['arr_0']
 # --------------------------------------------------------------------------------
 
 # ---------------- build macro MSM -----------------------------------------------
 print "building macrostate MSM..."
 # msm lagtime == 30 steps == 48 ns
-msm = MarkovStateModel(lag_time=30, n_timescales=20, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
+msm = MarkovStateModel(lag_time=4000, n_timescales=10, reversible_type='transpose', ergodic_cutoff='off', prior_counts=0, sliding_window=True, verbose=True)	
 msm.fit(macro_assigns)
 # --------------------------------------------------------------------------------
 
 # ---------------- build TPT  ----------------------------------------------------
 print "building TPT..."
 # starting macro states
-sources = [14]
+sources = [1]
 # ending macro states
-sinks = [1,3,5,7]
+sinks = [7]
 net_flux = tpt.net_fluxes(sources, sinks, msm, for_committors=None)
 print "TPT net_flux.shape:", net_flux.shape
 pfold = tpt.committors(sources, sinks, msm)
@@ -89,14 +90,14 @@ for i in range(n_macro):
 
 # -------------------- plot pathways on tICA landscape ----------------------------
 print "plotting TPT pathways on tICA space..."
-fig = plt.figure(figsize=(10,10))
+fig = plt.figure(figsize=(15,10))
 ax = fig.add_subplot(111)
 
 # first plot tICA landscape and macrostates
 plot_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
 
 # all pathways
-n_paths = -1
+n_paths = 6
 for path in paths[0][0:n_paths]:
     for i in range(len(path)-1):
         c1 = circls[path[i]]
@@ -123,12 +124,19 @@ print tabulate(data,headers=('id','Path','Flux','Norm Flux','Accumulated Flux'),
 # --------------------------------------------------------------------------------
 
 # --------------------- label macrostates on tICA landscape ----------------------
+def label_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
+    for i in range(n_macros):
+        ind = (map15 == i)
+        plt.text(np.mean(gens[:,0][ind]),np.mean(gens[:,1][ind]),i,fontsize=16,bbox=dict(facecolor='y', edgecolor='r',boxstyle='circle'), horizontalalignment='center',)
+label_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
+# Maybe we don't need this any more?
 # TO DO: add circles to labels
 #print "labeling macrostates..."
-all_s = []
-for i in paths[0]:
+if 0:
+ all_s = []
+ for i in paths[0]:
     all_s.extend(i)
-for i in range(len(pfold)):
+ for i in range(len(pfold)):
     if i in np.unique(all_s):
         if i in [2,10,11] : plt.text(xs[i]-0.2,ys[i]-0.1,i, fontsize=16)
         elif i in [3,7,6] : plt.text(xs[i],ys[i]-0.25,i, fontsize=16)
