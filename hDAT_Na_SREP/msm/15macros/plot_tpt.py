@@ -106,7 +106,8 @@ for path in paths[0][0:n_paths]:
         cir2 = Ellipse((c2[0],c2[1]),c2[2],c2[3],fill=False)
         ax.add_patch(cir1)
         ax.add_patch(cir2)
-	# editing arrow properties from some of the pathways for better viualization
+	## editing arrow properties from some of the pathways for better viualization
+        # carefull with 
 #        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="k", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
 #        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="0.1", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
         if  path[i] == 2 and path[i+1]  ==  9 :  arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
@@ -133,7 +134,7 @@ def label_macros(n_macros,map15,assigns22,gens,ev0,ev1,raw_data):
         ind = (map15 == i)
         plt.text(np.mean(gens[:,0][ind]),np.mean(gens[:,1][ind]),i,fontsize=16,bbox=dict(facecolor='y', edgecolor='r',boxstyle='circle'), horizontalalignment='center',)
 label_macros(n_macro,map15,macro_assigns,gens,ev0,ev1,on_tica)
-# Maybe we don't need this any more?
+# Maybe we don't need the following any more?
 # TO DO: add circles to labels
 #print "labeling macrostates..."
 if 0:
