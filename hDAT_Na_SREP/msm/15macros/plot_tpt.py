@@ -106,7 +106,7 @@ for path in paths[0][0:n_paths]:
         cir2 = Ellipse((c2[0],c2[1]),c2[2],c2[3],fill=False)
         ax.add_patch(cir1)
         ax.add_patch(cir2)
-	## editing arrow properties from some of the pathways for better viualization
+	## editing arrow properties for some of the pathways for better viualization
         # carefull with the following two lines that are commented out, they change arrow thickness  
 #        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="k", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
 #        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="0.1", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
