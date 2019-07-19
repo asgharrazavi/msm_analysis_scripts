@@ -107,8 +107,12 @@ for path in paths[0][0:n_paths]:
         ax.add_patch(cir1)
         ax.add_patch(cir2)
 	# editing arrow properties from some of the pathways for better viualization
-        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="k", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
-        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="0.1", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+#        if fluxes[path[i]][path[i+1]] < 1 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="k", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+#        elif 1 < fluxes[path[i]][path[i+1]] < 10 : arowprops = dict(arrowstyle="fancy,head_length=2,head_width=2,tail_width=1", fc="0.1", ec="0.3", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        if  path[i] == 2 and path[i+1]  ==  9 :  arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        elif  path[i] == 1 and path[i+1]  ==  6 :  arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        elif  path[i] == 3 and path[i+1]  ==  2 :  arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
+        elif  path[i] == 0 and path[i+1]  ==  2 :  arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=0.1",patchA=cir1,patchB=cir2)
         else: arowprops = dict(arrowstyle="fancy", fc="0.1", ec="0.1", connectionstyle="arc3,rad=-0.1",patchA=cir1,patchB=cir2)
         ax.annotate('', xy=(xs[path[i+1]], ys[path[i+1]]), xytext=(xs[path[i]], ys[path[i]]),
                         size=fluxes[path[i]][path[i+1]], textcoords='data',xycoords = 'data', arrowprops=arowprops)
